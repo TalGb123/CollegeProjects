@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dots and Boxes Game</title>
+    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="game.css">
+</head>
+<body onload="BuildBoard()">
+    <nav class="navbar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../hobbies.html">Hobbies</a></li>
+            <li><a href="../city.html">City</a></li>
+            <li><a href="../game.html">Game</a></li>
+        </ul>
+    </nav>
+    <div class="content-wrapper">
+        <h1>Dots and Boxes</h1> 
+        <div class="settings-container">
+            <label for="boardWidth">Board Width</label>
+            <input type="range" id="boardWidth" value="3" min="2" max="7" step="1">
+            <label for="boardHeight">Board Height</label>
+            <input type="range" id="boardHeight" value="3" min="2" max="7" step="1">
+            <button onclick="Settings()">Apply Settings</button>
+            <button onclick="UndoMove()">Undo Move</button>
+            <button onclick="ResetBoard()">Reset Board</button>
+        </div>
+        <div id="game-board" class="game-container"></div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

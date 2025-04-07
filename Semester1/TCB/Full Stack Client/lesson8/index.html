@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Alarm Exercise</h1>
+        <div class="alarm">
+            <div class="alarm__time">
+                <input type="number" id="alarmHours" min="0" max="23" placeholder="HH"> :
+                <input type="number" id="alarmMinutes" min="0" max="59" placeholder="MM">
+            </div>
+            <div class="alarm__buttons">
+                <button id="startTimer" onclick="startTimer()">Start</button>
+                <button id="resetAlarm" onclick="resetTimer()">Reset</button>
+            </div>
+        </div>
+        <h1 id="timer"></h1>
+    </div>
+</body>
+</html>

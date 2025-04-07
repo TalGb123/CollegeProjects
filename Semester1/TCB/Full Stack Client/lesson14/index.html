@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Board</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <button id="resetBoard" onclick="ResetBoard()">Reset Board</button>
+        <label for="boardSize">Board Size:</label>
+        <input type="range" id="boardSize" name="boardSize" min="5" max="20" value="13" oninput="updateBoardSize(this.value)">
+        <span id="boardSizeValue">13</span>
+    </div>
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 50px;">
+        <div id="colorPicker">
+            <div class="color-swatch" id="orange" style="background-color: orange;" onclick="selectColor(this.id)"></div>
+            <div class="color-swatch" id="lime" style="background-color: lime;" onclick="selectColor(this.id)"></div>
+            <div class="color-swatch" id="yellow" style="background-color: yellow;" onclick="selectColor(this.id)"></div>
+            <div class="color-swatch" id="gray" style="background-color: gray;" onclick="selectColor(this.id)"></div>
+            <div class="color-swatch" id="black" style="background-color: black;" onclick="selectColor(this.id)"></div>
+            <div class="color-swatch" id="white" style="background-color: white;" onclick="selectColor(this.id)"></div>
+            <input type="color" id="color" value="#000000" onchange="selectColor(this.value)">
+        </div>
+        <div id="boardContainer"></div>
+    </div>
+</body>
+</html>

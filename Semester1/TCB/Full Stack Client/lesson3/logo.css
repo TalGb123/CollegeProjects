@@ -1,0 +1,110 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    transform: scale(1.5); /* Increase size by 50% */
+}
+
+@keyframes transform {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        fill: black;
+    }
+    50% {
+        fill: red;
+    }
+    100% {
+        fill: black;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes opacityChange {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes skew {
+    0% {
+        transform: skewX(0deg);
+    }
+    50% {
+        transform: skewX(20deg);
+    }
+    100% {
+        transform: skewX(0deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shadow {
+    0% {
+        text-shadow: 0 0 5px black;
+    }
+    50% {
+        text-shadow: 0 0 20px black;
+    }
+    100% {
+        text-shadow: 0 0 5px black;
+    }
+}
+
+.logo text {
+    animation: transform 5s infinite, colorChange 5s infinite, opacityChange 5s infinite, bounce 2s infinite, skew 3s infinite, pulse 4s infinite, shadow 6s infinite;
+    transform-origin: center;
+}
+
+.logo svg {
+    animation: rotate 10s infinite linear;
+}

@@ -1,0 +1,53 @@
+body, header, footer {
+    background-color: orange;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    height: 300px;
+    background-color: lightblue;
+    width: 80%;
+    margin-left: 10%;
+    gap: 50px;
+}
+
+.item {
+    width: 200px;
+    height: 240px; /* Increased height to fit the text below */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item img {
+    width: 200px;
+    height: 200px;
+    border: solid 5px black;
+}
+
+.item:hover {
+    transform: scale(1.2);
+    border-radius: 10%;
+}
+
+.item span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.name-container {
+    margin-top: 30px;
+    margin-left: 10%;
+    width: 80%;
+    height: 50px;
+    background-color: lightblue;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

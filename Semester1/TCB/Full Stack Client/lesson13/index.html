@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="image-container">
+        <img id="main-image" src="pic/pic1.png" alt="Pic">
+    </div>
+    <button id="random-button" onclick="showRandomPicture()">Random Picture</button>
+    <br>
+    <input id="text-input" type="text"> <button id="text-button" onclick="inputShow()">OK</button>
+    <br>
+    <select id="image-select">
+        <option id="pic1" value="pic1">Picture 1</option>
+        <option id="pic2" value="pic2">Picture 2</option>
+        <option id="pic3" value="pic3">Picture 3</option>
+        <option id="pic4" value="pic4">Picture 4</option>
+        <option id="pic5" value="pic5">Picture 5</option>
+        <option id="pic6" value="pic6">Picture 6</option>
+        <option id="pic7" value="pic7">Picture 7</option>
+        <option id="pic8" value="pic8">Picture 8</option>
+        <option id="pic9" value="pic9">Picture 9</option>
+        <option id="pic10" value="pic10">Picture 10</option>
+    </select>
+    <button id="select-button"  onclick="changePictureFromSelect()">OK</button>
+    <br>
+    Size <input id="size-range" type="range" min="0" max="400" value="60" oninput="changeSize()">
+    <br>
+    Color <input id="color-picker" type="color" oninput="changeBorderColor()">
+    <br>
+    <button id="circle-button" onclick="makeCircle()">Circle</button>
+    <button id="square-button" onclick="makeSquare()">Square</button>
+</body>
+</html>

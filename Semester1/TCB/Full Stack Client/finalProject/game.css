@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: calc(100vh - 60px); /* Subtract navbar height */
+    padding: 20px;
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+}
+
+#game-board {
+    display: grid;
+    gap: 0;
+    width: min(35vh, 35vw); /* Take smaller of 70% viewport height or width */
+    height: min(35vh, 35vw);
+    aspect-ratio: 1;
+    margin: auto;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.dot {
+    width: 35px; /* Increased size */
+    height: 35px; /* Increased size */
+    background-color: black;
+    border-radius: 50%;
+}
+
+.empty {
+    border: none;
+    background-color: transparent;
+}
+
+
+.hover:hover{
+    background: repeating-linear-gradient(
+        45deg,
+        black,
+        black 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+.horizontal-line {
+    width: 70px; /* Adjusted size to fit between dots */
+    height: 5px; /* Increased size */
+    left: 30%; /* Center the line between dots */
+    bottom: -25%;
+    transform: translateX(-50%);
+}
+
+.vertical-line {
+    width: 5px; /* Increased size */
+    height: 70px; /* Adjusted size to fit between dots */
+    top: 30%; /* Center the line between dots */
+    left: 25%;
+    transform: translateY(-50%);
+}
+
+
+.player{
+    display: flex;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    right: 28%;
+    bottom: 28%;
+}
+
+.player1 {
+    background-color: red;
+}
+
+.player2 {
+    background-color: blue;
+}

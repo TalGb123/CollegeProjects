@@ -1,0 +1,68 @@
+.animal {
+    color: red;
+    font-size: 50px;
+    position: relative; /* Ensure the parent element is positioned relative */
+}
+
+.dog:hover::after,
+.cat:hover::after,
+.hamster:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%; /* Adjust the width as needed */
+    height: 100%; /* Adjust the height as needed */
+    top: 0;
+    left: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dog:hover::after {
+    background-image: url('./img/dog.png');
+}
+
+.cat:hover::after {
+    background-image: url('./img/cat.png');
+}
+
+.hamster:hover::after {
+    background-image: url('./img/hamster.png');
+}
+
+.dog:hover,
+.cat:hover,
+.hamster:hover {
+    color: transparent; /* Hide the text when hovering */
+}
+
+button {
+    width: 200px;
+    height: 200px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.options-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below the menu button */
+    left: 0;
+    width: 100%;
+}
+
+.menu-container:hover .options-menu,
+.options-menu:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

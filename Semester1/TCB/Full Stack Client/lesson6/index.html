@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Base Converter</h1>
+        <div class="row-flex" style="gap:50px">
+            <div class="column-flex">
+                <h1>From base:</h1>
+                <div class="row-flex">
+                    <input type="radio" id="fromBase2" name="fromBase" value="2">
+                    <label for="fromBase">2</label>
+                </div>
+                <div class="row-flex">
+                    <input type="radio" id="fromBase8" name="fromBase" value="8">
+                    <label for="fromBase">8</label>
+                </div>
+                <div class="row-flex">
+                    <input type="radio" id="fromBase10" name="fromBase" value="10">
+                    <label for="fromBase">10</label>
+                </div>
+                <div class="row-flex">
+                    <input type="radio" id="fromBase16" name="fromBase" value="16">
+                    <label for="fromBase">16</label>
+                </div>
+            </div>
+            <div class="column-flex">
+                <h1>To base:</h1>
+                <div class="row-flex">
+                    <input type="radio" id="toBase2" name="toBase" value="2">
+                    <label for="toBase">2</label>
+                </div>
+                <div class="row-flex">
+                    <input type="radio" id="toBase8" name="toBase" value="8">
+                    <label for="toBase">8</label>
+                </div>
+                <div class="row-flex">
+                    <input type="radio" id="toBase10" name="toBase" value="10">
+                    <label for="toBase">10</label>
+                </div>
+                <div class="row-flex">
+                    <input type="radio" id="toBase16" name="toBase" value="16">
+                    <label for="toBase">16</label>
+                </div>
+            </div>
+        </div>
+        <div class="row-flex" style="margin-top:20px">
+            <input type="text" id="num" name="num">
+            <button onclick="BaseConvert()">Convert</button>
+        </div>
+        <div>
+            <h1 id="result"></h1>
+        </div>
+    </div>
+</body>
+</html>

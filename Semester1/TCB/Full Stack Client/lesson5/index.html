@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="button-flex">
+        <button class="button" onclick="twoPowerFour()">2<sup>4</sup></button>
+        <button class="button" onclick="displayFactorial(5)">!5</button>
+        <button class="button" onclick="let num = parseInt(prompt(`Enter a number: `)); displayFactorial(num)">Factorial</button>
+        <button class="button" onclick="factorialAll()">Factorial All</button>
+        <button class="button" onclick="factorialExplanation()">Factorial Explanation</button>
+    </div>
+    <div class="result-container">
+        <h1>Result</h1>
+        <p id="result"></p>
+    </div>
+    <div class="grade">
+        <input type="text" id="grade">
+        <button class="button" onclick="Grade()">Grade</button>
+    </div>
+</body>
+</html>

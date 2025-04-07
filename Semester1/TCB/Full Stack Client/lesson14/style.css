@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+#boardContainer {
+    display: grid;
+    grid-template-columns: repeat(13, 30px); /* Adjust the number of columns based on board_length */
+    gap: 0; /* Remove gaps between buttons */
+    margin-top: 20px;
+    border: #000 1px solid;
+}
+
+button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: white;
+    border: none; /* Remove borders */
+    padding: 0; /* Remove padding */
+}
+
+button#startBoard, button#resetBoard {
+    width: auto;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+}
+
+#colorPicker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}

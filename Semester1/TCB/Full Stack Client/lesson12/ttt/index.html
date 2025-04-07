@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div class="game-status" id="gameStatus">Player X's turn</div>
+        <div class="game-board" id="gameBoard">
+            <button class="cell" id="0,0" onclick="playGame(this.id)"></button>
+            <button class="cell" id="0,1" onclick="playGame(this.id)"></button>
+            <button class="cell" id="0,2" onclick="playGame(this.id)"></button>
+            <button class="cell" id="1,0" onclick="playGame(this.id)"></button>
+            <button class="cell" id="1,1" onclick="playGame(this.id)"></button>
+            <button class="cell" id="1,2" onclick="playGame(this.id)"></button>
+            <button class="cell" id="2,0" onclick="playGame(this.id)"></button>
+            <button class="cell" id="2,1" onclick="playGame(this.id)"></button>
+            <button class="cell" id="2,2" onclick="playGame(this.id)"></button>
+        </div>
+        <button id="resetButton">Reset Game</button>
+    </div>
+</body>
+</html>
