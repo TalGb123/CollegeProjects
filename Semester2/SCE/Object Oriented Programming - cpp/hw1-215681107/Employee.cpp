@@ -1,6 +1,11 @@
+// Creator: Tal Gubenko
+// ID: 215681107
+// Assignment: 1
+
 #include "Employee.h"
 #include <string.h>
 #include <iostream>
+using namespace std;
 
 // Checks if a given string contains only numeric characters
 bool Employee::isNumeric(const char* str) {

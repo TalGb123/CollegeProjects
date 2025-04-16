@@ -1,5 +1,8 @@
+// Creator: Tal Gubenko
+// ID: 215681107
+// Assignment: 1
+
 #include "Employee.cpp"
-#include <string.h>
 
 int main(){
     string name;

@@ -1,6 +1,11 @@
+// Creator: Tal Gubenko
+// ID: 215681107
+// Assignment: 1
+
 #include "Password.h"
 #include <iostream>
 #include <string.h>
+using namespace std;
 
 // Default values to set
 void Password::SetDefaults() {

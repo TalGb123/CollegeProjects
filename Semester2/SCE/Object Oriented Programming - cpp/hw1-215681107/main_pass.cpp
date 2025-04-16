@@ -1,7 +1,8 @@
-#include "Password.cpp"
-#include <iostream>
-#include <string.h>
+// Creator: Tal Gubenko
+// ID: 215681107
+// Assignment: 1
 
+#include "Password.cpp"
 
 int main() {
     char* password = new char(); 

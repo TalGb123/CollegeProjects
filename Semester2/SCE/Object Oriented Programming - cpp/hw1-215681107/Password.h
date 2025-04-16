@@ -1,5 +1,6 @@
-#include <iostream>
-using namespace std;
+// Creator: Tal Gubenko
+// ID: 215681107
+// Assignment: 1
 
 class Password {
     // attributes
