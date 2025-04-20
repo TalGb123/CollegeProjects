@@ -29,14 +29,24 @@ app.post('/order', (req, res) => {
 		name: customerName,
 		tableNum: tableNumber,
 		itemList: items,
-		date: new Date().toISOString(),
+		date: (new Date().toISOString()).split('T')[0],
 		time: new Date().toLocaleTimeString()
 	};
 	orders[lastID] = order;
 	lastID++;
+	if (orders[lastID] === undefined) {
+		return res.status(404).json({
+			error: 'Order not found'
+		});
+	}
 	res.status(201).json({ 
-    message: 'Order created successfully',
-    orderId: order.id 
+    		message: 'Order created successfully',
+    		orderId: order.id,
+		customerName: order.name,
+		tableNumber: order.tableNum,
+		itemList: order.itemList,
+		date: order.date,
+		time: order.time
   	});
 });
 
@@ -50,7 +60,7 @@ app.get('/order/:id', (req, res) => {
 });
 
 app.get('/search/:item', (req, res) => {
-	const item = req.query.item;
+	const item = req.params.item;
 	const result = Object.values(orders).filter(
 		order => order.itemList.includes(item));
 	if (result.length === 0) {

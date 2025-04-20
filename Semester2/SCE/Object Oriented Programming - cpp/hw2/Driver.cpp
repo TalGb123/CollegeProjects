@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     int no;
-    cout<<"Enter 2number of cards you want to play with"<<endl;
+    cout<<"Enter 3number of cards you want to play with"<<endl;
     cin>>no;
     Game m(no);
     m.Run();
