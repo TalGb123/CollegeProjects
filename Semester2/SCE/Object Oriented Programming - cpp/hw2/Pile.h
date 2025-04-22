@@ -14,4 +14,5 @@ public:
     void PileOpener();
     void CardOpener(int row, int col);
     Card* GetCard(int index) { return &this->pile[index]; }
+    int GetPileSize() { return this->pileSize; }
 };

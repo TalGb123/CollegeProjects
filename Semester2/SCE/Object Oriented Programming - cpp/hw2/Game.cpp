@@ -16,9 +16,8 @@ Game::~Game() {
 }
 
 void Game::Run() {
-    
     while (true){
-        cout << "Get ready you have 30 seconds to memorize:" << endl;
+        cout << "Get ready you have 10 seconds to memorize:" << endl;
         this->pile->PileOpener();
         this->pile->PrintPile();
         int row1, col1;
@@ -27,10 +26,6 @@ void Game::Run() {
         cin >> row1;
         cout << " Col: ";
         cin >> col1;
-        // if (this->pile[(row1*col1)/5].GetMode()) {
-        //     cout << "This card is already opened. Try again." << endl;
-        //     continue;
-        // }
         this->pile->CardOpener(row1, col1);
         this->pile->PrintPile();
         int row2, col2;
@@ -44,6 +39,17 @@ void Game::Run() {
         if (this->pile->GetCard((row1-1)*5+col1-1)->CompareCards(*this->pile->GetCard((row2-1)*5+col2-1))) {
             cout << "You found a couple!";
             this->coupleFound++;
+            bool allFound = true;
+            for (int i = 0; i < this->pile->GetPileSize(); i++) {
+                if (!this->pile->GetCard(i)->GetMode()) {
+                    allFound = false;
+                    break;
+                }
+            }
+            if (allFound) {
+                cout << "\nCongratulations! You found all " << this->coupleFound << " couples!" << endl;
+                return;
+            }
         } else {
             cout << "Not a couple. Try again.";
             this->pile->CardOpener(row1, col1);
@@ -52,6 +58,10 @@ void Game::Run() {
         cout << "Do you want to continue? 1-yes 0-no" << endl;
         int choice;
         cin >> choice;
+        while (choice != 1 && choice != 0) {
+            cout << "Invalid choice. Please enter 1 to continue or 0 to exit." << endl;
+            cin >> choice;
+        }
         if (choice == 0) {
             cout << "You found " << this->coupleFound << " couples." << endl;
             break;
