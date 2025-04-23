@@ -1,3 +1,6 @@
+// Assignment: 2
+// Creator: Tal Gubenko, 215681107
+
 #include "Game.h"
 #include <iostream>
 using namespace std;

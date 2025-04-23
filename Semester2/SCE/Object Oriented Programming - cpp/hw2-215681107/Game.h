@@ -1,3 +1,6 @@
+// Assignment: 2
+// Creator: Tal Gubenko, 215681107
+
 #include "Pile.h"
 
 class Game{

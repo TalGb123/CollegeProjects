@@ -1,3 +1,7 @@
+// Assignment: 2
+// Creator: Tal Gubenko, 215681107
+
+
 #include "Card.h"
 
 class Pile {
