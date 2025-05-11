@@ -10,12 +10,9 @@ public class Penthouse extends Apartment {
     }
 
     void setBalconySize(double balconySize){this.balconySize=balconySize;}
-    double totalArea(){
-        return this.balconySize + this.getApartmentSize();
-    }
-
+    
     @Override
-    public String toString() {
-        return super.toString() + ;
+    double totalArea(){
+        return this.getApartmentSize() + this.balconySize;
     }
 }

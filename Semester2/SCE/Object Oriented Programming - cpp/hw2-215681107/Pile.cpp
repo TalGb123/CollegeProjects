@@ -1,9 +1,13 @@
+// Assignment: 2
+// Creator: Tal Gubenko, 215681107
+
 #include "Pile.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 using namespace std;
 
+// Constructor: Initializes the pile with a given size, fills and shuffles it
 Pile::Pile(int pileSize) {
     srand(time(0));
     if (pileSize >= 4 && pileSize <= 52) {
@@ -16,10 +20,12 @@ Pile::Pile(int pileSize) {
     PileShuffle();
 }
 
+// Destructor: Releases the memory allocated for the pile
 Pile::~Pile() {
     delete[] this->pile;
 }
 
+// Fills the pile with pairs of cards (A, B, C, ...)
 void Pile::PileFiller() {
     for (int i = 0; i < this->pileSize; i += 2) {
         char cardValue = 'A' + (i / 2);
@@ -28,6 +34,7 @@ void Pile::PileFiller() {
     }
 }
 
+// Shuffles the pile randomly
 void Pile::PileShuffle() {
     for (int i = this->pileSize - 1; i > 0; --i) {
         int j = rand() % (i + 1);
@@ -37,7 +44,9 @@ void Pile::PileShuffle() {
     }
 }
 
+// Temporarily reveals all cards for 10 seconds, then hides them again
 void Pile::PileOpener() {
+<<<<<<< HEAD:Semester2/SCE/Object Oriented Programming - cpp/hw2/Pile.cpp
     static Pile* prevOpened = new Pile(this->pileSize);
     int j = 0;
     for (int i = 0; i < this->pileSize; i++) {
@@ -46,12 +55,17 @@ void Pile::PileOpener() {
             prevOpened->pile[j].SetCard(this->pile[i].GetValue());
             j++;
         }
+=======
+    for (int i = 0; i < this->pileSize; i++) {
+        this->pile[i].ChangeMode();
+>>>>>>> 0bd7a6be10755f7d79ba59fbbf327870937d1002:Semester2/SCE/Object Oriented Programming - cpp/hw2-215681107/Pile.cpp
     }
     PrintPile();
     int sec = 10;
     clock_t start_time = clock();
     clock_t end_time = sec * 1000 + start_time;
     while (clock() < end_time) {}
+<<<<<<< HEAD:Semester2/SCE/Object Oriented Programming - cpp/hw2/Pile.cpp
     for (int i=0; i < this->pileSize; i++) {
         for (int j=0; j < prevOpened->pileSize; j++) {
             if (this->pile[i].CompareCards(prevOpened->pile[j])) {
@@ -62,8 +76,15 @@ void Pile::PileOpener() {
     }
     while (clock() < end_time) {}
     // system("cls");
+=======
+    for (int i = 0; i < this->pileSize; i++) {
+        this->pile[i].ChangeMode();
+    }
+    system("cls");
+>>>>>>> 0bd7a6be10755f7d79ba59fbbf327870937d1002:Semester2/SCE/Object Oriented Programming - cpp/hw2-215681107/Pile.cpp
 }
 
+// Prints the pile in a 5-column grid format
 void Pile::PrintPile() {
     cout << "        ";
     for (int i = 0; i < 5; i++) {
@@ -83,6 +104,7 @@ void Pile::PrintPile() {
     cout << endl;
 }
 
+// Reveals or hides a specific card at the given row and column
 void Pile::CardOpener(int row, int col) {
     int index = (row - 1) * 5 + (col - 1);
     if (index >= 0 && index < this->pileSize) {

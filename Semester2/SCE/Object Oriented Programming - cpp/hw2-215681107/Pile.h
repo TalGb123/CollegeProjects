@@ -1,3 +1,7 @@
+// Assignment: 2
+// Creator: Tal Gubenko, 215681107
+
+
 #include "Card.h"
 
 class Pile {
@@ -14,4 +18,5 @@ public:
     void PileOpener();
     void CardOpener(int row, int col);
     Card* GetCard(int index) { return &this->pile[index]; }
+    int GetPileSize() { return this->pileSize; }
 };

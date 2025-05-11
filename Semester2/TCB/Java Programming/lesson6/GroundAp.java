@@ -14,7 +14,8 @@ public class GroundAp extends Apartment {
     boolean getDiffEntry(){return this.diffEntry;}
     double getGardenSize(){return this.gardenSize;}
 
+    @Override
     double totalArea(){
-        return this.gardenSize + this.getApartmentSize();
+        return this.getApartmentSize() + this.gardenSize;
     }
 }

@@ -21,4 +21,13 @@ public class Apartment {
     void setApartmentSize(double apartmentSize){this.apartmentSize=apartmentSize;}
     void setRoomNum(int roomNum){this.roomNum=roomNum;}
     double getApartmentSize() { return this.apartmentSize;}
+
+    double totalArea() {
+        return this.apartmentSize;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " total area: " + totalArea();
+    }
 }
