@@ -34,11 +34,6 @@ app.post('/order', (req, res) => {
 	};
 	orders[lastID] = order;
 	lastID++;
-	if (orders[lastID] === undefined) {
-		return res.status(404).json({
-			error: 'Order not found'
-		});
-	}
 	res.status(201).json({ 
     		message: 'Order created successfully',
     		orderId: order.id,

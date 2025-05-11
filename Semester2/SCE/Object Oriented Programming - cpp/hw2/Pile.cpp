@@ -38,12 +38,12 @@ void Pile::PileShuffle() {
 }
 
 void Pile::PileOpener() {
-    Pile* temp = new Pile(this->pileSize);
+    static Pile* prevOpened = new Pile(this->pileSize);
     int j = 0;
     for (int i = 0; i < this->pileSize; i++) {
         if (!this->pile[i].GetMode()) {
             this->pile[i].ChangeMode();
-            temp->pile[j].SetCard(this->pile[i].GetValue());
+            prevOpened->pile[j].SetCard(this->pile[i].GetValue());
             j++;
         }
     }
@@ -53,16 +53,15 @@ void Pile::PileOpener() {
     clock_t end_time = sec * 1000 + start_time;
     while (clock() < end_time) {}
     for (int i=0; i < this->pileSize; i++) {
-        for (int j=0; j < temp->pileSize; j++) {
-            if (this->pile[i].CompareCards(temp->pile[j])) {
+        for (int j=0; j < prevOpened->pileSize; j++) {
+            if (this->pile[i].CompareCards(prevOpened->pile[j])) {
                 this->pile[i].ChangeMode();
                 break;
             }
         }
     }
-    delete temp;
     while (clock() < end_time) {}
-    system("cls");
+    // system("cls");
 }
 
 void Pile::PrintPile() {

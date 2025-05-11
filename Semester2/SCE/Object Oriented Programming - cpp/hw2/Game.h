@@ -9,4 +9,5 @@ class Game{
         Game(int pileSize);
         ~Game();
         void Run();
+        int GetCoupleFound() { return this->coupleFound; }
 };

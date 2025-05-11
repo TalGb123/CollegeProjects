@@ -16,9 +16,8 @@ Game::~Game() {
 }
 
 void Game::Run() {
-    
     while (true){
-        cout << "Get ready you have 30 seconds to memorize:" << endl;
+        cout << "Get ready you have 10 seconds to memorize:" << endl;
         this->pile->PileOpener();
         this->pile->PrintPile();
         int row1, col1;
@@ -27,10 +26,6 @@ void Game::Run() {
         cin >> row1;
         cout << " Col: ";
         cin >> col1;
-        // if (this->pile[(row1*col1)/5].GetMode()) {
-        //     cout << "This card is already opened. Try again." << endl;
-        //     continue;
-        // }
         this->pile->CardOpener(row1, col1);
         this->pile->PrintPile();
         int row2, col2;
