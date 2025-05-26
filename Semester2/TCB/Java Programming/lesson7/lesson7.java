@@ -32,7 +32,7 @@ public class q1 {
             }
             int lastDigit = n % 10;
             n /= 10;
-            if (n % 10 < lastDigit) {
+            if (n % 10 > lastDigit) {
                   return false;
             }
             return newOrder(n);
@@ -40,5 +40,8 @@ public class q1 {
 
       public static void main(String[] args) {
             RecursiveTriangle(5);
+            ReversedText("Hello");
+            System.out.print(howManyChar("hello", 'l'));
+            System.out.print(newOrder(13333));
       }
 }

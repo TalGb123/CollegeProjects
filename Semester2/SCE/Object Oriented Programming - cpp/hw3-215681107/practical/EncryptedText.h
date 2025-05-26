@@ -1,4 +1,4 @@
-#include "Text.cpp"
+#include "Text.h"
 
 class EncryptedText{
       private:
@@ -7,10 +7,12 @@ class EncryptedText{
             int* key;
             int keySize;
       public:
-            EncryptedText(char* text, bool status);
+            EncryptedText(const char* text, bool status);
+            EncryptedText(Text* text, bool status);
             EncryptedText();
             void SetDefault();
             ~EncryptedText();
+            void setKeySize(int size) { keySize = size; }
             void ProcessKey(bool status);
             void operator!();
             void operator&();
@@ -19,5 +21,5 @@ class EncryptedText{
             void operator+=(int* key);
             void operator-=(int n);
             Text& operator[](int n);
-            friend std::ostream& operator<<(std::ostream& os, const EncryptedText& text);
+            friend ostream& operator<<(ostream& out, const EncryptedText& other);
 };
