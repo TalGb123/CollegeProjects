@@ -17,5 +17,5 @@ class Text{
             void operator+=(int n);
             void operator-=(int n);
             Word& operator[](int n);
-            friend std::ostream& operator<<(std::ostream& os, const Text& text);
+            friend ostream& operator<<(ostream& os, const Text& text);
 };

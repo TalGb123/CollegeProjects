@@ -1,0 +1,17 @@
+a. abbaad
+b. aabbaad
+c. aabddc
+d. The function removes up to k instances of the character ch from the beginning 
+      of the string (left to right).
+e. public static String whatIterative(String s, char ch, int k) {
+      StringBuilder result = new StringBuilder();
+      for (int i = 0; i < s.length(); i++) {
+            char current = s.charAt(i);
+            if (current == ch && k > 0) {
+                  k--; // skip this character
+            } else {
+                  result.append(current); // keep this character
+            }
+      }
+      return result.toString();
+    }

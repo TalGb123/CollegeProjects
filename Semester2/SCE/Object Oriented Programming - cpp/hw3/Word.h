@@ -1,3 +1,5 @@
+using namespace std;
+
 class Word{
       private:
             char* word;
@@ -14,5 +16,5 @@ class Word{
             void operator+=(int n);
             void operator-=(int n);
             char& operator[](int n);
-            friend std::ostream& operator<<(std::ostream& os, const Word& word);
+            friend ostream& operator<<(ostream& os, const Word& word);
 };

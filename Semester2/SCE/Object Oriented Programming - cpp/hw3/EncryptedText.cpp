@@ -116,5 +116,13 @@ void EncryptedText::ProcessKey(bool encrypt) {
       }
 }
 
+ostream& operator<<(ostream& out, const EncryptedText& other){
+      for (int i = 0; i < other.keySize; i++) {
+            out << *(other.text) << " ";
+      }
+      out << endl;
+      return out;
+}
+
 
 

@@ -142,3 +142,11 @@ void Text::operator-=(int n){
 Word& Text::operator[](int n){
     return this->words[((n % this->wordCount) + this->wordCount) % this->wordCount];
 }
+
+ostream& operator<<(ostream& out, const Text& other){
+      for (int i = 0; i < other.wordCount; i++) {
+            out << *(other.words) << " ";
+      }
+      out << endl;
+      return out;
+}

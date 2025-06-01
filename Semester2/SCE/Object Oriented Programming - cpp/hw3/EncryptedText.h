@@ -19,5 +19,5 @@ class EncryptedText{
             void operator+=(int* key);
             void operator-=(int n);
             Text& operator[](int n);
-            friend std::ostream& operator<<(std::ostream& os, const EncryptedText& text);
+            friend ostream& operator<<(ostream& os, const EncryptedText& text);
 };

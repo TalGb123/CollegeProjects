@@ -129,3 +129,11 @@ char& Word::operator[](int n){
     return this->word[((n % this->charCount) + this->charCount) % this->charCount];
 }
 
+ostream& operator<<(ostream& out, const Word& other){
+      for (int i = 0; i < other.charCount; i++) {
+            out << *(other.word) << " ";
+      }
+      out << endl;
+      return out;
+}
+
