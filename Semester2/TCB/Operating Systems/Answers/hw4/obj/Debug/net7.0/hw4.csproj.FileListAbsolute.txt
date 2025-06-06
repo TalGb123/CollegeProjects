@@ -1,0 +1,17 @@
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\bin\Debug\net7.0\hw4.exe
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\bin\Debug\net7.0\hw4.deps.json
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\bin\Debug\net7.0\hw4.runtimeconfig.json
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\bin\Debug\net7.0\hw4.dll
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\bin\Debug\net7.0\hw4.pdb
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\bin\Debug\net7.0\SuperSimpleTcp.dll
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.csproj.AssemblyReference.cache
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.AssemblyInfoInputs.cache
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.AssemblyInfo.cs
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.csproj.CoreCompileInputs.cache
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.csproj.CopyComplete
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.dll
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\refint\hw4.dll
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.pdb
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\hw4.genruntimeconfig.cache
+C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw4\obj\Debug\net7.0\ref\hw4.dll

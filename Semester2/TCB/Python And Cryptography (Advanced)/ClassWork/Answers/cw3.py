@@ -29,3 +29,5 @@ def doPower(tpl):
        return tuple(x[0]**(x[1] if x[1] >= 0 else 1/abs(x[1])) for x in tpl if not (x[0] < 0 and x[1] < 0))
 # print(doPower(((2,3),(4,-2),(-5,3),(-4,-2))))
 
+
+

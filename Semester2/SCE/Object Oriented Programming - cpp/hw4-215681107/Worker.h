@@ -1,15 +1,15 @@
 #include "Human.h"
+#pragma once
 
 class Worker : public Human{
       private:
             int seniority;
       public:
             Worker(const string firstName, const string lastName, const string id, int seniority);
-            ~Worker();
+            virtual ~Worker();
             Worker(const Worker& other);
-            Worker& operator=(const Worker& other);
-            int getSeniority() const;
+            int getSeniority() const { return this->seniority; }
             void printDetails() const override;
             virtual double calculateSalary() const;
-            virtual bool excellentWorker(Worker* workers) const;
+            virtual bool excellentWorker() const;
 };

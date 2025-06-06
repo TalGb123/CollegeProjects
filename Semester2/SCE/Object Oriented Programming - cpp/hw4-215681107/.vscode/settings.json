@@ -1,5 +1,6 @@
 {
       "files.associations": {
+            "*.html": "jinja-html",
             "format": "cpp",
             "xstring": "cpp",
             "iostream": "cpp",
@@ -48,6 +49,7 @@
             "xloctime": "cpp",
             "xmemory": "cpp",
             "xtr1common": "cpp",
-            "xutility": "cpp"
+            "xutility": "cpp",
+            "xstddef": "cpp"
       }
 }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1lJvzF+0Lmc=",
+  "dgSpecHash": "i6pWcHxeB2Xxkr/LrHfTStx0fFshdgbrYAtGrZRufp/uBg7gIVvY/qQ/wlh8+b3O81lPmTyZPuO+sfi81gqORw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\CollegeProjects\\Semester2\\TCB\\Operating Systems\\Answers\\hw4\\hw4.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\leona\\שולחן העבודה\\CollegeProjects\\Semester2\\TCB\\Operating Systems\\Answers\\hw4\\hw4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\leona\\.nuget\\packages\\supersimpletcp\\3.0.17\\supersimpletcp.3.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

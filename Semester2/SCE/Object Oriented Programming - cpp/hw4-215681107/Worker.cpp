@@ -3,6 +3,7 @@
 #include <cstring>
 using namespace std;
 
+// Constructor: initializes Worker with given details, ensures non-negative seniority
 Worker::Worker(const string firstName, const string lastName, const string id, int seniority)
     : Human(firstName, lastName, id), seniority(seniority) {
       if (seniority < 0) {
@@ -10,6 +11,7 @@ Worker::Worker(const string firstName, const string lastName, const string id, i
       }
 }
 
+// Copy constructor: copies another Worker, ensures non-negative seniority
 Worker::Worker(const Worker& other)
     : Human(other), seniority(other.seniority) {
       if (seniority < 0) {
@@ -17,20 +19,18 @@ Worker::Worker(const Worker& other)
       }
 }
 
+// Virtual destructor (needed for polymorphism)
 Worker::~Worker() {}
 
+// Calculates salary based on seniority
 double Worker::calculateSalary() const {
       return seniority * 1000 + 6500;
 }
 
-bool Worker::excellentWorker(Worker* workers) const {
-      for (int i = 0; i < sizeof(workers)/sizeof(Worker); ++i) {
-            if (workers[i].seniority > 5) {
-                  return true;
-            }
-      }
-}
+// Returns whether this worker is "excellent" (default: false, override in derived)
+bool Worker::excellentWorker() const { return false; }
 
+// Prints worker details, including those from Human
 void Worker::printDetails() const {
       Human::printDetails();
       cout << "Seniority: " << this->seniority << "\n";

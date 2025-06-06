@@ -1,4 +1,5 @@
 #include "Worker.h"
+#pragma once
 
 class Doctor : public Worker {
       private:
@@ -12,7 +13,7 @@ class Doctor : public Worker {
             Doctor& operator=(const Doctor& other);
             ~Doctor();
             void printDetails() const override;
-            bool excellentDoctor() const;
+            bool excellentWorker() const;
             double calculateSalary() const override;
 };
 

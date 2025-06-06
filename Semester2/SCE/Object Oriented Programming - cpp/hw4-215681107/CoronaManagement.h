@@ -3,13 +3,14 @@
 #include "Doctor.h"
 #include "Worker.h"
 #include "Corona.h"
+#pragma once
 
 class CoronaManagement {
       private:
             Patient** patients;
             int numPatients;
             Corona** departments; 
-            int numdDepartments; 
+            int numDepartments; 
             Worker** workers;
             int numWorkers;
       public:
@@ -25,7 +26,16 @@ class CoronaManagement {
             int getNumWorkers() const;
             void Menu();
             void printOptions() const;
-            void AddNurse(string chosenHospitalName, int chosenHospitalIndex);
-            void AddDoctor(string chosenHospitalName, int chosenHospitalIndex);
-            void AddDepartment(string chosenHospitalName, int chosenHospitalIndex);
+            void AddNurse(string HospitalName, int HospitalIndex);
+            void AddDoctor(string HospitalName, int HospitalIndex);
+            void AddDepartment(string HospitalName, int HospitalIndex);
+            void PrintDepartmentDetails(string HospitalName, int HospitalIndex) const;
+            void PrintAllDoctors() const;
+            void PrintWorkerSalary() const;
+            void AddPatient(string hospitalName, int hospitalIndex);
+            void AddCoronaTestToPatientById();
+            void Releasing();
+            void PrintExcellenceWorker() const;
+            void PrintNurseWithSmallestSalary() const;
+            void PrintAllDepartments() const;
 };

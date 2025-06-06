@@ -1,6 +1,7 @@
 #include "Nurse.h"
 #include "Doctor.h"
 #include "Patient.h"
+#pragma once
 
 class Corona {
       private:
@@ -20,4 +21,6 @@ class Corona {
             void addPatient(Patient* patient);
             void printDetails() const;
             string getHospital() {return this->hospital;};
+            Patient** getPatients() { return this->patients; };
+            void removePatientById(const string& id);
 };

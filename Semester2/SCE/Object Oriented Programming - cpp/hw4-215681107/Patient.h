@@ -1,4 +1,5 @@
 #include "Human.h"
+#pragma once
 
 class Patient : public Human {
       private:
@@ -11,5 +12,9 @@ class Patient : public Human {
             Patient(const Patient& other);
             ~Patient();
             void printDetails() const override;
-            int getNegTests() const;     
+            int getNegTests() const { return this->negTests; };     
+            int getTestsDone() const { return this->testsDone; };
+            void setTestsDone(int testsDone) { this->testsDone = testsDone; };
+            void setNegTests(int negTests) { this->negTests = negTests; };
+            const string getHospital() const { return this->department;  };
 };

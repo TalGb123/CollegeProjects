@@ -7,7 +7,7 @@ class Program
       static readonly object consoleLock = new();
       static readonly SemaphoreSlim stationSlots = new(10);
       static readonly Random rnd = new();
-      static int totalFuel = 2000; // Change as needed
+      static int totalFuel = 120000; 
       static readonly object fuelLock = new();
       static CancellationTokenSource cts = new();
       static int vehicleCount = 0;
@@ -16,18 +16,18 @@ class Program
       static void Main()
       {
             System.Timers.Timer gasStationTimeoutTimer = new();
-            gasStationTimeoutTimer.Interval = 5000; // 5 seconds
+            gasStationTimeoutTimer.Interval = 5000; 
             gasStationTimeoutTimer.Elapsed += GasStationTimeoutTimerElapsed;
             gasStationTimeoutTimer.AutoReset = false;
             gasStationTimeoutTimer.Start();
 
             System.Timers.Timer vehicleCreationTimer = new();
-            vehicleCreationTimer.Interval = rnd.Next(5, 25); // ms (adjusted from 5-25ms for demo)
+            vehicleCreationTimer.Interval = rnd.Next(5, 25); 
             vehicleCreationTimer.Elapsed += VehiclesCreationTimerElapsed;
             vehicleCreationTimer.AutoReset = true;
             vehicleCreationTimer.Start();
 
-            Console.ReadLine(); // Wait until Enter is pressed
+            Console.ReadLine(); 
       }
 
       static void GasStationTimeoutTimerElapsed(object? sender, ElapsedEventArgs e)
@@ -69,7 +69,7 @@ class Program
                   return;
             }
 
-            if (cts.IsCancellationRequested)
+            if (cts.IsCancellationRequested || v.CancellationToken.IsCancellationRequested)
             {
                   stationSlots.Release();
                   PrintWithLock($"Vehicle {v.Id} received cancellation request while waiting to enter the gas station");
@@ -88,14 +88,14 @@ class Program
                   return;
                   }
 
-                  fuelNeeded = rnd.Next(111, 151); // Adjusted to simulate larger usage
+                  fuelNeeded = rnd.Next(111, 151); 
                   if (fuelNeeded > totalFuel)
                   fuelNeeded = totalFuel;
 
                   totalFuel -= fuelNeeded;
             }
 
-            Thread.Sleep(rnd.Next(100, 300)); // simulate fueling time
+            Thread.Sleep(rnd.Next(100, 300)); 
             PrintWithLock($"Vehicle {v.Id} fueled {fuelNeeded}");
             PrintWithLock($"Total fuel: {totalFuel}");
 
