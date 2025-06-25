@@ -7,26 +7,25 @@ class Program
       static readonly object consoleLock = new();
       static readonly SemaphoreSlim stationSlots = new(10);
       static readonly Random rnd = new();
-      static int totalFuel = 120000; 
+      static int totalFuel = 700; 
       static readonly object fuelLock = new();
       static CancellationTokenSource cts = new();
       static int vehicleCount = 0;
       static bool fuelDepleted = false;
+      static System.Timers.Timer gasStationTimeoutTimer = new();
+      static System.Timers.Timer vehicleCreationTimer = new();
 
       static void Main()
       {
-            System.Timers.Timer gasStationTimeoutTimer = new();
             gasStationTimeoutTimer.Interval = 5000; 
             gasStationTimeoutTimer.Elapsed += GasStationTimeoutTimerElapsed;
             gasStationTimeoutTimer.AutoReset = false;
             gasStationTimeoutTimer.Start();
 
-            System.Timers.Timer vehicleCreationTimer = new();
             vehicleCreationTimer.Interval = rnd.Next(5, 25); 
             vehicleCreationTimer.Elapsed += VehiclesCreationTimerElapsed;
             vehicleCreationTimer.AutoReset = true;
             vehicleCreationTimer.Start();
-
             Console.ReadLine(); 
       }
 
@@ -34,6 +33,11 @@ class Program
       {
             PrintWithLock("Gas station closing timeout of 5000 elapsed");
             cts.Cancel();
+            vehicleCreationTimer.Stop();
+            vehicleCreationTimer.Dispose();
+            gasStationTimeoutTimer.Stop();
+            gasStationTimeoutTimer.Dispose();
+            Environment.Exit(0);
       }
 
       static void FuelDepleted()
@@ -43,6 +47,11 @@ class Program
                   fuelDepleted = true;
                   cts.Cancel();
                   PrintWithLock("Gas station closing: Fuel depleted");
+                  vehicleCreationTimer.Stop();
+                  vehicleCreationTimer.Dispose();
+                  gasStationTimeoutTimer.Stop();
+                  gasStationTimeoutTimer.Dispose();
+                  Environment.Exit(0);
             }
       }
 
@@ -72,35 +81,42 @@ class Program
             if (cts.IsCancellationRequested || v.CancellationToken.IsCancellationRequested)
             {
                   stationSlots.Release();
-                  PrintWithLock($"Vehicle {v.Id} received cancellation request while waiting to enter the gas station");
+                  PrintWithLock($"Vehicle {v.Id} received cancellation request after entering the gas station");
                   return;
             }
 
-            PrintWithLock($"Vehicle {v.Id} entered the gas station");
+            int fuelNeeded = rnd.Next(111, 151);
+            bool fueled = false;
 
-            int fuelNeeded;
             lock (fuelLock)
             {
-                  if (totalFuel <= 0)
+                  if (totalFuel >= fuelNeeded)
                   {
-                  stationSlots.Release();
-                  PrintWithLock($"Vehicle {v.Id} leaved the gas station");
-                  return;
+                        totalFuel -= fuelNeeded;
+                        fueled = true;
                   }
-
-                  fuelNeeded = rnd.Next(111, 151); 
-                  if (fuelNeeded > totalFuel)
-                  fuelNeeded = totalFuel;
-
-                  totalFuel -= fuelNeeded;
+                  else if (totalFuel > 0)
+                  {
+                        // Only one vehicle can take the remaining fuel
+                        fuelNeeded = totalFuel;
+                        totalFuel = 0;
+                        fueled = true;
+                  }
+                  // If totalFuel == 0, fueled stays false
             }
 
-            Thread.Sleep(rnd.Next(100, 300)); 
-            PrintWithLock($"Vehicle {v.Id} fueled {fuelNeeded}");
-            PrintWithLock($"Total fuel: {totalFuel}");
-
-            if (totalFuel == 0)
-                  FuelDepleted();
+            if (fueled && fuelNeeded > 0)
+            {
+                  Thread.Sleep(rnd.Next(100, 300)); // simulate fueling time
+                  PrintWithLock($"Vehicle {v.Id} fueled {fuelNeeded}");
+                  PrintWithLock($"Total fuel: {totalFuel}");
+                  if (totalFuel == 0)
+                        FuelDepleted();
+            }
+            else
+            {
+                  PrintWithLock($"Vehicle {v.Id} found no fuel and is leaving");
+            }
 
             PrintWithLock($"Vehicle {v.Id} leaved the gas station");
             stationSlots.Release();
