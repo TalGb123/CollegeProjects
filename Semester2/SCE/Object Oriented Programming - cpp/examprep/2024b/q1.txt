@@ -1,0 +1,38 @@
+vtable:
+one - one::f1, one:f2, one:~one
+two - two::f1, two::~two, one::f2
+three - three::~three, one::f2, one::f1
+four - four::f2, four::~four, two::f1
+
+output:
+one ctor
+1
+
+one ctor
+two ctor
+2
+
+one ctor
+three ctor
+5
+
+one ctor
+two ctor
+three ctor
+four ctor
+6
+
+one::f2 2
+
+one::f1 5
+
+one::f3 5
+
+two::f1 6
+
+one::f3 6
+
+the functions that have f3 will use their own f3 and not the base's f3 (as pointed by pointer)
+
+all functions that currently have virtual function in them, will just use the parent (one) function instead of their own as said in pointer
+and also compilation error in four class because of the diamond inheritance structure 

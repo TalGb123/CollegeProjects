@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wFxTb8fhc38=",
+  "dgSpecHash": "CTqZTQ1TzCg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\leona\\שולחן העבודה\\CollegeProjects\\Semester2\\TCB\\Operating Systems\\Answers\\hw5\\Manager\\Manager.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\CollegeProjects\\Semester2\\TCB\\Operating Systems\\Answers\\hw5\\Manager\\Manager.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\leona\\.nuget\\packages\\supersimpletcp\\3.0.17\\supersimpletcp.3.0.17.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\supersimpletcp\\3.0.17\\supersimpletcp.3.0.17.nupkg.sha512"
   ],
   "logs": []
 }

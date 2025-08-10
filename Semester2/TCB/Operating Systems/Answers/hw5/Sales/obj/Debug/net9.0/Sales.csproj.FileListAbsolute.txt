@@ -16,3 +16,21 @@ C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating S
 C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.pdb
 C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.genruntimeconfig.cache
 C:\Users\leona\שולחן העבודה\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\ref\Sales.dll
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\bin\Debug\net9.0\Sales.exe
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\bin\Debug\net9.0\Sales.deps.json
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\bin\Debug\net9.0\Sales.runtimeconfig.json
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\bin\Debug\net9.0\Sales.dll
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\bin\Debug\net9.0\Sales.pdb
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\bin\Debug\net9.0\SuperSimpleTcp.dll
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.AssemblyInfo.cs
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.sourcelink.json
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.csproj.Up2Date
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.dll
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\refint\Sales.dll
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.pdb
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\Sales.genruntimeconfig.cache
+C:\Users\User\Desktop\CollegeProjects\Semester2\TCB\Operating Systems\Answers\hw5\Sales\obj\Debug\net9.0\ref\Sales.dll
