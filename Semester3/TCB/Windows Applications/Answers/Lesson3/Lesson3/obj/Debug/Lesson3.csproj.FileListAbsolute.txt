@@ -1,0 +1,11 @@
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\bin\Debug\Lesson3.exe.config
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\bin\Debug\Lesson3.exe
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\bin\Debug\Lesson3.pdb
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.Form1.resources
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.Form2.resources
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.Properties.Resources.resources
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.csproj.GenerateResource.cache
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.exe
+C:\Users\User\Desktop\CollegeProjects\Semester3\TCB\Windows Applications\Lesson3\Lesson3\obj\Debug\Lesson3.pdb
