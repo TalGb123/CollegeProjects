@@ -1,0 +1,37 @@
+vtable:
+saba- a::f2, a::f3
+aba - b::f2, b::f3 b::f1
+son - c::f2
+
+output:
+1.
+saba::ctor
+aba::ctor
+son::ctor
+
+2.
+son::f2
+saba::f2
+saba::f1
+aba::f3
+aba::f1
+
+3.
+saba::ctor
+aba::ctor
+
+4.
+aba::f2
+aba::f3
+aba::f1
+
+5.
+saba::dtor
+
+6.
+saba::dtor
+
+q1.3
+there will be a memory leak as memory will not be cleared (becomes unusable)
+
+
