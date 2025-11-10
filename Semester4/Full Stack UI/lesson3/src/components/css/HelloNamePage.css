@@ -1,0 +1,14 @@
+.row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 20px;
+      gap: 20px;
+      
+      flex-direction: row;
+}
+
+.name-list {
+      margin-top: 20px;
+      text-align: center;
+}
