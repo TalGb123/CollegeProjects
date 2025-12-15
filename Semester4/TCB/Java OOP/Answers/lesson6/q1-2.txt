@@ -1,0 +1,57 @@
+q1
+
+Base
+Sub
+Sub
+Sub
+true
+true
+true
+true
+false
+true
+true
+true
+true
+
+q2
+
+1. false, causes compilation error because same signature
+
+2. true, but only if you make an override function for equals
+
+3. false, if there is an abstract function you must use abstract class else it causes compilation error
+
+4. true, every class inherits from object function and calls its builder.
+
+q3b
+
+1. incorrect - compilation error, cant create an instance of interface (no builder)
+
+2. correct
+
+3. correct
+
+4. incorrect - compilation error, c4 doesnt inherit c2
+
+5. incorrect - compilation error, c3 is the parent class of c4, cant switch them
+
+6. incorrect - runtime error - class casting error
+
+7. correct 
+
+8. correct
+
+9. correct
+
+10. incorrect - compilation error - g1 is IA and g2 is C4, C4 doesnt implement IA
+
+11. incorrect - compilation error - C4 doesnt implement AI
+
+12. correct
+
+13. incorrect - compilation error - no link between IA and IB
+
+14. correct
+
+15. incorrect - compilation error - i is C3 while j is C4

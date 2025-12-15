@@ -1,0 +1,20 @@
+Person (id, firstName, lastName, birthDate)
+
+Client (id)
+
+Renovator (id)
+
+Asset (city, street, buildingNumber, apartmentNumber, neighborhood, yearBuilt, size)
+
+AssetOwners (clientID, city, street, buildingNumber, apartmentNumber)
+
+Supplier (licenseNumber, businessName)
+
+Material (id, type, color, manufacturer, weight, price, supplyDate, supplierLicense)
+
+RenovationInstance (city, street, buildingNumber, apartmentNumber, stageNum, startDate,
+      estEndDate, realEndDate, renovatorID, supplierLicense)
+
+Renovation_Materials (city, street, buildingNumber, apartmentNumber, stageNum, materialID)
+
+Payment (id, amount, paymentDate, clientID, city, street, buildingNumber, apartmentNumber, stageNum)

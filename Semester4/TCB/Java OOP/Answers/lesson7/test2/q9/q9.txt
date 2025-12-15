@@ -1,0 +1,61 @@
+// 1. BasicPackage
+public double getPrice() {
+      return super.getPrice() + this.price; 
+}
+
+// 2. ExtendedPackage
+public double getPrice() {
+      return super.getPrice() + (this.price * this.numOfChannels);
+}
+
+// 3. Phone
+public double getPrice() {
+      return super.getPrice() + (this.price * this.numberOfCalls);
+}
+
+// 4. Triple
+public double getPrice() {
+      double sum = this.package.getPrice() + this.phone.getPrice() + this.priceOfInternet;
+      return sum * 0.9;
+}
+
+// 5. Client
+public double getPrice() {
+      return this.cable.getPrice();
+}
+
+public void printSportClients() {
+      for (int i = 0; i < this.numClients; i++) {
+            Cable c = this.clients[i].getCable();
+            ExtendedPackage ep = null;
+            if (c instanceof ExtendedPackage) {
+                  ep = (ExtendedPackage) c;
+            }
+            else if (c instanceof Triple) {
+                  Triple t = (Triple) c;
+                  if (t.getPackage() instanceof ExtendedPackage) {
+                        ep = (ExtendedPackage) t.getPackage();
+                  }
+            }
+            if (ep != null) {
+                  String[] channels = ep.getNamesOfChannels();
+                  for (int j = 0; j < channels.length; j++) {
+                        if (channels[j].equals("Sport")) {
+                              System.out.println(this.clients[i].getNameClient());
+                              break;
+                        }
+                  }
+            }
+      }
+}
+
+public int countBasicPackageClients() {
+      int count = 0;
+      for (int i = 0; i < this.numClients; i++) {
+            Cable c = this.clients[i].getCable();
+            if ((c instanceof BasicPackage) && !(c instanceof ExtendedPackage)) {
+                  count++;
+            }
+      }
+      return count;
+}

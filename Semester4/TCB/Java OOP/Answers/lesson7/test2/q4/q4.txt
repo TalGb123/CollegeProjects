@@ -1,0 +1,11 @@
+1. ok overloading
+2. ok overloading
+3. compilation error - same signature in saem class
+4. ok overloading
+5. ok overloading
+
+1. ok overloading
+2. ok overriding
+3. compilation error - return type incompatible with parent
+4. ok overloading
+5. ok overloading

@@ -1,0 +1,56 @@
+public boolean isSame(Tablet other) {
+      if (other == null) return false;
+      if (this.name.equals(other.getName()) && 
+                  this.kind.equals(other.getKind()) && 
+                  this.size == other.getSize()) {
+                  return true;
+            }
+      return false;
+}
+
+public boolean addTablet(Tablet tab) {
+      if (this.tablets[this.tablets.length - 1] != null) {
+            return false;
+      }
+
+      for (int i = 0; i < this.tablets.length; i++) {
+            if (this.tablets[i] != null) {
+                  if (this.tablets[i].isSame(tab)) {
+                        double newPrice = Math.max(this.tablets[i].getPrice(), tab.getPrice());
+                        this.tablets[i].setPrice(newPrice);
+                        return true;
+                  }
+            } 
+            else {
+                  this.tablets[i] = tab;
+                  char sys = tab.getSystem();
+                  if (sys == 'W') this.systems[0]++;
+                  else if (sys == 'A') this.systems[1]++;
+                  else if (sys == 'I') this.systems[2]++;
+                  return true;
+            }
+      }
+      return false; 
+}
+
+public int sortStore() {
+      Tablet[] temp = new Tablet[this.tablets.length];
+      int current = 0;
+      for (int i = 0; i < this.tablets.length; i++) {
+            if (this.tablets[i] != null && this.tablets[i].getSystem() == 'W') {
+                  temp[current++] = this.tablets[i];
+            }
+      }
+      for (int i = 0; i < this.tablets.length; i++) {
+            if (this.tablets[i] != null && this.tablets[i].getSystem() == 'A') {
+                  temp[current++] = this.tablets[i];
+            }
+      }
+      for (int i = 0; i < this.tablets.length; i++) {
+            if (this.tablets[i] != null && this.tablets[i].getSystem() == 'I') {
+                  temp[current++] = this.tablets[i];
+            }
+      }
+      this.tablets = temp;
+      return this.tablets.length - current; 
+}

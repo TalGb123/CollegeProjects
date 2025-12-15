@@ -1,0 +1,15 @@
+1. runtime error casting - cat is subclass of mammal so works in compilation but in runtime the
+ object in mammal is a bulldog which cannot be converted to cat
+
+2. runtime error casting - already declared as mammal and cannot be converted to cat because it 
+is a bulldog
+
+3. valid
+
+4. compilation error - cant directly keep a casted object of mammal in a dog variable
+
+5. compilation error - same as 4, trying to save a casted mammal object in a beagle variable
+
+6. runtime error - not every cat is a bengal so cant cast it
+
+7. valid

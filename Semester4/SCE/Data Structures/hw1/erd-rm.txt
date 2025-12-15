@@ -1,0 +1,19 @@
+Person(id, firstName, lastName, birthDate);
+
+Client(id)
+Renovator(id)
+
+Asset(city, neighborhood, street, buildingNumber, apartmentNumber, yearBuilt, size);
+
+Payment(id, amount, paymentDate, clientID, renoCity, renoStreet, renoBuilding, renoApt, renoStage);
+
+Material(id, type, color, manufacturer, weight, price, supplyDate, supplierLicense);
+
+Supplier(licenseNumber, businessName)
+
+RenovationInstance(city, street, buildingNumber, apartmentNumber, stageNum, startDate, estEndDate, realEndDate, renovatorID)
+
+Ownership(clientID, city, street, buildingNumber, apartmentNumber)
+
+Uses(city, street, apartmentNumber, stageNumber, materialID, supplierLicense);
+

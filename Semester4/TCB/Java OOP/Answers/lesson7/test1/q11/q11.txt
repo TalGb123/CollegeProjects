@@ -1,0 +1,11 @@
+
+
+
+b.
+x1 before EEEE
+x1 after FFFFF
+x2 MMM
+y1 EEEE
+x3 GG
+y2 M
+x4 GG

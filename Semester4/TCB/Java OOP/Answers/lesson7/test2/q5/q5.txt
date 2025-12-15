@@ -1,0 +1,14 @@
+2. in child its overloaded at the constructors with different parameter list,
+in parent its overloaded at the constructors with different parameter list
+
+3. theres an override at method calculate and print, child inherits from parent and with same
+ function name and parameter list, it overrides
+
+public static void output(Object[] arr) {
+      for (int i = 0; i < arr.length; i++) {
+            if (arr[i] instanceof Parent) {
+                  Parent p = (Parent) arr[i];
+                  p.print();
+            }
+      }
+}

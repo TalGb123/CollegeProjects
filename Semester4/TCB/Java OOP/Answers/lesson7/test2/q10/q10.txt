@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+
+public class TrickTruck {
+      private ArrayList<String> drivers;
+      private ArrayList<Integer> cars;
+      private ArrayList<Payment>[] payments; 
+
+      public TrickTruck() {
+            this.drivers = new ArrayList<String>();
+            this.cars = new ArrayList<Integer>();
+            this.payments = new ArrayList[30]; 
+            for (int i = 0; i < 30; i++) {
+                  this.payments[i] = new ArrayList<Payment>();
+            }
+      }
+
+      public boolean addPayment(int day, int num, String name, double fuel) {
+            if (day < 1 || day > 30) {
+                  return false;
+            }
+            if (!existDriver(name)) {
+                  return false;
+            }
+            if (!existCar(num)) {
+                  return false;
+            }
+            Payment newPay = new Payment(name, num, fuel);
+            int index = day - 1; 
+            this.payments[index].add(newPay);
+            return true;
+      }
+
+      public double totalFuel(int num) {
+            double sum = 0;
+            for (int i = 0; i < this.payments.length; i++) {
+                  for (Payment p : this.payments[i]) {
+                        if (p.getNum() == num) {
+                              sum += p.getFuel();
+                        }
+                  }
+            }
+            return sum;
+      }
+
+      public void printWorkDays() {
+            for (String name : this.drivers) {
+                  int dayCount = 0;
+                  for (int day = 1; day <= 30; day++) {
+                        if (worked(name, day)) {
+                              dayCount++;
+                        }
+                  }
+                  System.out.println("Driver: " + name + ", Days worked: " + dayCount);
+            }
+      }
+}
