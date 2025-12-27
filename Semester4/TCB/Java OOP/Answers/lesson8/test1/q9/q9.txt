@@ -1,0 +1,47 @@
+public abstract class Payment {
+      protected double amount; 
+}
+
+public class Cash extends Payment {}
+
+public class Cheque extends Payment {
+      private int chequeNum;      
+      private String bankName;    
+      private Date date;         
+}
+
+public class Credit extends Payment {
+      private String cardNum;     
+      private Date expDate;       
+      private Date billingDate;   
+}
+
+public class Buy {
+      private Date date;              
+      private double totalAmount;     
+      private Payment[] payments;     
+      private int pCount;            
+}
+
+public class Store {
+      private Buy[] purchases;       
+      private int bCount;   
+
+      public boolean check() {
+            double sum = 0;
+            for (int i = 0; i < this.pCount; i++) {
+                  sum += this.payments[i].getAmount();
+            }
+            return sum == this.totalAmount;
+      }         
+
+      public void print(String creditNum){
+            for(int i=0; i<numPurchases; i++){
+                  if (purchases[i].hasCredit(creditNum))
+                  {
+                        
+                  }
+            }
+      }
+}
+

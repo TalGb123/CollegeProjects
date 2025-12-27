@@ -1,0 +1,41 @@
+a)
+1. false - because the base class has a no parameter constructor 
+so B class will not need it too.
+
+2. false - the inheritance works the opposite way, not A inherit from B.
+
+3. false - it cant inherit the private properties.
+
+4. false - there are private properties where B class cant directly access 
+it but needs get/set.
+
+5. false - base class cant access properties of child.
+
+b)
+public B(int val, double x) {
+    super(val);
+    this.x = x; 
+}
+
+c)
+1. invalid - compilation error, one is declared as class A and the class doesnt have goodCode() function.
+
+2. invalid - compilation error, same as above, two is declared as class A.
+
+3. valid.
+
+4. invalid - runtime error, cast error as two was fully declared as A and cant be 
+casted to B.
+
+d)
+class A:
+public void func() {
+    countA++;
+    System.out.println("YES");
+}
+
+class B:
+public void func() {
+    countB++;
+    System.out.println("YES");
+}

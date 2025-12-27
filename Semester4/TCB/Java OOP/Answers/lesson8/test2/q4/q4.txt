@@ -1,0 +1,16 @@
+a) A.f(A a) vs B.f(B b) is overloading, method name is the same but different param list
+A.f(A a) vs C.f(A a) is overriding, method name and param list is the same (signature)
+
+b) 
+1. invalid - runtime error, cast error as z1 is saved as C and cant cast to B as its not parent and child.
+
+2. valid - F in A
+
+3. valid - F in A
+
+4. valid - F in C
+
+5. valid - F in C
+
+6. invalid - runtime error, y2 saved as C and cannot cast to B as its not inheriting from one another.
+

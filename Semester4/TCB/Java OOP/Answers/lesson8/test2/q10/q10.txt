@@ -1,0 +1,33 @@
+public class SpeedCamera {
+      private int code;           
+      private int roadNum;        
+      private int maxSpeed;       
+      private ArrayList<Integer> carsList; 
+
+      public SpeedCamera(int code, int roadNum, int maxSpeed) {
+            this.code = code;
+            this.roadNum = roadNum;
+            this.maxSpeed = maxSpeed;
+            this.carsList = new ArrayList<Integer>(); 
+      }
+
+      public void addCar(int carNum, int speed) {
+            if (speed > this.maxSpeed) {
+                  this.carsList.add(carNum);
+            }
+      }
+
+      public class SpeedCameraNetwork {
+            private ArrayList<SpeedCamera> cameras; 
+
+            public SpeedCameraNetwork() {
+                  this.cameras = new ArrayList<SpeedCamera>();
+            }
+      }
+
+      public void addSpeedCamera(SpeedCamera sc) {
+            if (this.cameras.size() < 100) {
+                  this.cameras.add(sc); [cite_start]// [cite: 459]
+            }
+      }
+}

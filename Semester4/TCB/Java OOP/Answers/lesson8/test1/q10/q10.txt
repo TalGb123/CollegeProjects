@@ -1,0 +1,64 @@
+public class AdvertHour {
+      // Array to store the advertisements (Max 15 per hour)
+      private Advert[] ads;
+      
+      // Counter for the actual number of advertisements currently in the array
+      private int count;
+      
+      // Sum of the duration of all advertisements in seconds (Max 300)
+      private int totalTime;
+      
+      // Standard getters (assumed for Part D)
+      public Advert[] getAds() { return ads; }
+      public int getCount() { return count; }
+}
+
+public AdvertHour() {
+    this.ads = new Advert[15]; 
+    this.count = 0;            
+    this.totalTime = 0;        
+}
+
+public int freeTime() {
+    return 300 - this.totalTime;
+}
+
+public boolean isPossible(Advert adv) {
+      if (this.count >= 15) {
+            return false;
+      }
+      if (adv.getLength() > freeTime()) {
+            return false;
+      }
+      return true;
+}
+
+public void addAdvert(Advert adv) {
+      if (isPossible(adv)) {
+            this.ads[this.count] = adv; 
+            this.count++;               
+            this.totalTime += adv.getLength();
+      }
+}
+
+public class ManageDay {
+      private AdvertHour[] hours;
+      public ManageDay() {
+            this.hours = new AdvertHour[24];
+            for(int i=0; i<24; i++) {
+                  this.hours[i] = new AdvertHour();
+            }
+      }
+}
+
+public double benefitDay() {
+      double totalProfit = 0;
+      for (int i = 0; i < this.hours.length; i++) {
+            AdvertHour currentHour = this.hours[i];
+            for (int j = 0; j < currentHour.getCount(); j++) {
+                  Advert ad = currentHour.getAds()[j];
+                  totalProfit += ad.getPrice(); 
+            }
+      }
+      return totalProfit;
+}

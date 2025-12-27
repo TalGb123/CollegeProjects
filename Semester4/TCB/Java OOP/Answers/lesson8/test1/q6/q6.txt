@@ -1,0 +1,52 @@
+public static ArrayList<Double> averageList(ArrayList<Integer> lst) {
+      ArrayList<Double> result = new ArrayList<>();
+      double sum = 0;
+      int count = 0;
+      for (Integer grade : lst) {
+            if (grade == -1) {
+                  if (count > 0) { // Safety check to avoid division by zero
+                        result.add(sum / count);
+                  }
+                  sum = 0;
+                  count = 0;
+            } 
+            else {
+                  sum += grade;
+                  count++;
+            }
+      }
+      return result;
+}
+
+public static void print(ArrayList<Integer> lst) {
+      int studentId = 1;
+      double sum = 0;
+      int count = 0;
+      int min = Integer.MAX_VALUE;
+      for (Integer grade : lst) {
+            if (grade == -1) {
+                  if (count > 0) {
+                        double oldAvg = sum / count;
+                        double newAvg;
+                        if (count > 1) {
+                              newAvg = (sum - min) / (count - 1);
+                        } 
+                        else {
+                              newAvg = oldAvg;
+                        }
+                        System.out.println(studentId + " " + oldAvg + " " + newAvg);
+                        studentId++;
+                  }
+                  sum = 0;
+                  count = 0;
+                  min = Integer.MAX_VALUE;
+            } 
+            else {
+                  sum += grade;
+                  count++;
+                  if (grade < min) {
+                        min = grade;
+                  }
+            }
+      }
+}

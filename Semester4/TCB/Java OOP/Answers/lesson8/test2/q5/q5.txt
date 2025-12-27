@@ -1,0 +1,41 @@
+public class Pyramid {
+      private Stack<Clown> clowns;
+      public Pyramid() {
+            this.clowns = new Stack<Clown>();
+      }
+      public Stack<Clown> getClowns() { return this.clowns; }
+
+      public boolean isStable() {
+            Stack<Clown> temp = new Stack<Clown>();
+            boolean stable = true;
+            if (this.clowns.isEmpty()) return true;
+            while (!this.clowns.isEmpty() && stable) {
+                  Clown top = this.clowns.pop();
+                  temp.push(top);
+                  if (!this.clowns.isEmpty()) {
+                        Clown below = this.clowns.top();
+                        if (top.getWeight() >= below.getWeight()) {
+                              stable = false;
+                        }
+                  }
+            }
+            while (!temp.isEmpty()) {
+                  this.clowns.push(temp.pop());
+            }
+            return stable;
+      }
+
+      public boolean addClown(Clown c) {
+            if (!isStable()) return false;
+            if (this.clowns.isEmpty()) {
+                  this.clowns.push(c);
+                  return true;
+            }
+            Clown currentTop = this.clowns.top();
+            if (c.getWeight() < currentTop.getWeight()) {
+                  this.clowns.push(c);
+                  return true;
+            }
+            return false;
+      }
+}

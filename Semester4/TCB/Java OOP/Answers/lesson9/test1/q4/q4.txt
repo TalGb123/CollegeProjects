@@ -1,0 +1,23 @@
+a) 
+class C equals method overrides the method of object class because of the same parameter list
+
+class D equals method overloads the method of object because theres a different signature
+
+b)
+b: Type B, num = 1.
+
+c: Type C, num = 1.
+
+d: Type D. Constructor calls super(num+1). So num = 1 + 1 = 2
+
+b1: Runtime type D. Constructor D(1) sets num = 2
+
+c1: Runtime type C. Constructor C(1) sets num = 1
+
+d1: Runtime type D. Constructor D(1) sets num = 2
+
+c)
+1. false
+2. true
+3. false
+4. true

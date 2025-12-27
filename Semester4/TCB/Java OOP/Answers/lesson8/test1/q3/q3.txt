@@ -1,0 +1,5 @@
+1. false - it can be protected or private, depends where its located
+
+2. false 
+
+3. false -

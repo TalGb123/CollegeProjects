@@ -1,0 +1,69 @@
+public class Area {
+      private String color;
+      private int freeSpots;
+      private List<String> cars; 
+
+      public Area(String color, int freeSpots) {
+            this.color = color;
+            this.freeSpots = freeSpots;
+            this.cars = new ArrayList<>();
+      }
+
+      public String getColor() { return color; }
+      public int getFreeSpots() { return freeSpots; }
+      public void setFreeSpots(int num) { this.freeSpots = num; }
+      public List<String> getCars() { return cars; }
+}
+
+public class Floor {
+      private int floorNum;
+      private Area[] areas; 
+
+      public Floor(int floorNum, Area[] areas) {
+            this.floorNum = floorNum;
+            this.areas = areas;
+      }
+
+      public Area[] getAreas() { return areas; }
+      public int getFloorNum() { return floorNum; }
+}
+
+public String enterCar(String carNum) {
+      for (int i = 0; i < this.areas.length; i++) {
+            Area a = this.areas[i];
+            if (a.getFreeSpots() > 0) {
+                  a.getCars().add(carNum);    
+                  a.setFreeSpots(a.getFreeSpots() - 1);
+                  return a.getColor();               
+            }
+      }
+      return "no room";
+}
+
+public void parkCars(ArrayList<String> waitingList) {
+      boolean parkingFull = false;
+      while (!waitingList.isEmpty() && !parkingFull) {
+            String carNum = waitingList.get(0);
+            boolean isParked = false;
+            for (int i = 0; i < this.floors.length; i++) {
+                  String result = this.floors[i].enterCar(carNum);
+                  if (!result.equals("no room")) {
+                        System.out.println("Floor: " + this.floors[i].getFloorNum() + 
+                                          ", Color: " + result);
+                        waitingList.remove(0); 
+                        isParked = true;
+                        break; 
+                  }
+            }
+
+            if (!isParked) {
+                  parkingFull = true;
+            }
+      }
+      if (waitingList.isEmpty()) {
+            System.out.println("ALL");
+      } 
+      else {
+            System.out.println("NOT ALL");
+      }
+}

@@ -1,0 +1,51 @@
+--q1
+--SELECT *
+--FROM Customers c
+--WHERE NOT EXISTS (
+--    SELECT 1
+--    FROM Renovations r
+--    JOIN Renovators ren ON r.rid = ren.rid
+--    WHERE r.cid = c.cid
+--    AND ren.city = 'Ofakim'
+--);
+
+--q2
+--SELECT *
+--FROM Customers c
+--WHERE c.ctype = 'buisiness' -- Matches the spelling in PDF data 
+--AND c.cid IN (SELECT cid FROM Renovations) -- Ensures they have actually made an order
+--AND NOT EXISTS (
+--    SELECT 1
+--    FROM Renovations r
+--    JOIN Renovators ren ON r.rid = ren.rid
+--    WHERE r.cid = c.cid
+--    AND ren.rating < (SELECT MAX(rating) FROM Renovators)
+--);
+
+--q3
+--SELECT c.cid, c.fname, c.lname, COALESCE(SUM(r.price), 0) AS total_cost
+--FROM Customers c
+--LEFT JOIN Renovations r ON c.cid = r.cid
+--GROUP BY c.cid, c.fname, c.lname;
+
+--q4
+--SELECT cid
+--FROM Renovations
+--GROUP BY cid
+--HAVING SUM(price) >= ALL (  
+--    SELECT SUM(price)
+--    FROM Renovations
+--    GROUP BY cid
+--);
+
+--q5
+--SELECT ren.name, ren.city, ren.experience
+--FROM Renovators ren
+--LEFT JOIN Renovations r ON ren.rid = r.rid
+--GROUP BY ren.rid, ren.name, ren.city, ren.experience
+--HAVING COUNT(r.rid) <= ALL (
+--    SELECT COUNT(r2.rid)
+--    FROM Renovators ren2
+--    LEFT JOIN Renovations r2 ON ren2.rid = r2.rid
+--    GROUP BY ren2.rid
+--);

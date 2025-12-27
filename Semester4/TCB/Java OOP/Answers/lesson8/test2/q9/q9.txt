@@ -1,0 +1,58 @@
+public class Appartment {
+      protected String owner;
+      protected int floor;
+      protected int numApp;
+      protected int area;
+}
+
+public class GardenApp extends Appartment {
+      private int gardenArea;
+}
+
+public class Luxary extends Appartment {
+      protected int terraceArea; 
+}
+
+public class Penthouse extends Luxary {
+      private int numTerr;
+      private boolean seaView;
+}
+
+c)
+COST_APP: Appartment
+COST_GARDEN: GardenApp
+COST_TERRACE: Luxary
+
+d)
+Apartment:
+public double price() {
+      return this.area * COST_APP;
+}
+
+GardenApp:
+public double price() {
+      return super.price() + (this.gardenArea * COST_GARDEN);
+}
+
+Luxary:
+public double price() {
+      return super.price() + (this.terraceArea * COST_TERRACE);
+}
+
+Penthouse:
+public double price() {
+      double p = super.price();
+      if (!this.seaView) {
+            p = p * 0.95; 
+      }
+      return p;
+}
+
+e)
+public static void printAffordable(Appartment[] building, double budget) {
+      for (int i = 0; i < building.length; i++) {
+            if (building[i].getOwner().equals("FREE") && building[i].price() <= budget) {
+                  System.out.println(building[i].toString() + " Price: " + building[i].price());
+            }
+      }
+}

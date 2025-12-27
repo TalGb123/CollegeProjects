@@ -1,0 +1,39 @@
+a)
+public interface IHasEggs
+
+public interface ICanFly
+
+public class Animal
+
+public class Mammal extends Animal
+
+public class Fish extends Animal implements IHasEggs
+
+public class Bird extends Animal implements IHasEggs, ICanFly
+
+public class Bat extends Mammal implements ICanFly
+
+b)
+1. valid
+
+2. invalid - u cant create an object of an interface as its not a class.
+
+3. valid
+
+4. invalid - compilation error, its a bat object saved as a mammal object, mammal doesnt have access
+to icanfly interface.
+
+5. valid
+
+6. invalid - compilation error, cant save an object as an interface object, this is not a class.
+
+c)
+public static int countFly(Animal[] animals) {
+      int count = 0;
+      for (int i = 0; i < animals.length; i++) {
+            if (animals[i] != null && animals[i] instanceof ICanFly) {
+                  count++;
+            }
+      }
+      return count;
+}

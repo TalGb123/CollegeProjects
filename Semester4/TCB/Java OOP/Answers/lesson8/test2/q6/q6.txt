@@ -1,0 +1,39 @@
+a)
+public interface IFillable {}
+
+public interface ITurnable {}
+
+public class Shape implements IFillable {}
+
+public class Point {}
+
+public class Circle extends Shape {}
+
+public class Square extends Shape implements ITurnable {}
+
+public class Rectangle extends Square {}
+
+b)
+Square: public Square(Point p, double len)
+
+Circle: public Circle(Point p, double radius)
+
+Point: public Point(int x, int y)
+
+Shape: public Shape(Point p)
+
+c)
+1. valid
+
+2. invalid - compilation error, t is turnable and cant use fill which is in fillable
+
+3. valid
+
+4. invalid - runtime error - s saved as square and cant be casted to circle.
+
+5. valid
+
+6. invalid - compilation error, f is fillable and cant use left method as it belongs to turnable
+
+7. invalid - compilation error, c is saved as shape and shape doesnt have left method.
+

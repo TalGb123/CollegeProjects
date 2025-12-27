@@ -27,7 +27,7 @@ userRouter.get('/personal/:id',async(req,res)=>{
     res.send(user)
 })
 userRouter.post('/',async(req,res)=>{
-    const {birthday } = req.body
+    const { birthday } = req.body
     const result = await userModel.insertOne(req.body)
     res.send(result)
 })
