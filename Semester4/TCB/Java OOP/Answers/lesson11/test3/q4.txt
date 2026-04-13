@@ -1,0 +1,29 @@
+a)
+1. compilation error, save a parent object in a child type
+2. compilation error, same as above
+3. valid
+4. valid
+5. runtime error, declared as parent and tried to cast to a child
+6. runtime error, cant cast between sibling classes
+7. valid 
+8. compilation error, no explicit cast
+
+b)
+shape as abstract method for polymorphism
+
+c)
+public static Triangle maxArea(Shape[] arr) {
+    Triangle maxT = null;
+    double maxAreaSize = -1;
+
+    for (Shape s : arr) {
+        if (s instanceof Triangle) {
+            Triangle temp = (Triangle) s;
+            if (temp.area() > maxAreaSize) {
+                maxAreaSize = temp.area();
+                maxT = temp;
+            }
+        }
+    }
+    return maxT;
+}

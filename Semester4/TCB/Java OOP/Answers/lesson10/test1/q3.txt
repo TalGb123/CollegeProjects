@@ -1,0 +1,2 @@
+a)
+1. false, rose doesnt inherit 

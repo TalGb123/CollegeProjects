@@ -1,0 +1,59 @@
+public class Driver {
+    private String id; 
+    private String name; 
+    private String licenseNum; 
+    private String birthDate; 
+    private int violations; 
+    private boolean isDisabled;
+
+    public int getAge() { return 20; } 
+    public int getViolations() { return 0; } 
+    public boolean isSuspended() { return false; } 
+    public void setSuspended(boolean b) {}
+    public String getId() { return "123"; } 
+}
+
+public class DriversData {
+    private ArrayList<Driver> allDrivers;
+
+    public DriversData() {
+        this.allDrivers = new ArrayList<>();
+    }
+}
+
+public void removeDriver(String id) {
+    for (int i = 0; i < allDrivers.size(); i++) {
+        if (allDrivers.get(i).getId().equals(id)) {
+            allDrivers.remove(i);
+            return; 
+        }
+    }
+}
+
+public int getMaxViolations(int age) {
+    int maxV = 0;
+    for (int i = 0; i < allDrivers.size(); i++) {
+        Driver d = allDrivers.get(i);
+        if (d.getAge() == age && !d.isSuspended()) {
+            if (d.getViolations() > maxV) {
+                maxV = d.getViolations();
+            }
+        }
+    }
+    return maxV;
+}
+
+public void suspendDrivers() {
+    for (int age = 18; age <= 120; age++) {
+        int max = getMaxViolations(age);
+        if (max > 0) {
+            for (int i = 0; i < allDrivers.size(); i++) {
+                Driver d = allDrivers.get(i);
+                if (d.getAge() == age && d.getViolations() == max) {
+                    d.setSuspended(true);
+                    System.out.println(d); // Print details
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+c)
+A objects: 7
+B objects: 4
+C objects: 2
+
+d)
+A:13
+B:A:5:10
+C:B:A:2:7 [A:9]
+C:B:A:3:3 [A:6]
+B:A:0:5
+
+e)
+20
+13
+15
+5

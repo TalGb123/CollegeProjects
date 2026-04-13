@@ -1,0 +1,97 @@
+public abstract class Shoe {
+    protected String producer;
+    protected int size;
+    protected String color;
+    protected double basePrice;
+
+    public Shoe(String producer, int size, String color, double basePrice) {
+        this.producer = producer;
+        this.size = size;
+        this.color = color;
+        this.basePrice = basePrice;
+    }
+    public abstract double calcPrice();
+}
+
+public class KidsShoe extends Shoe {
+    private boolean isOrthopedic;
+
+    public KidsShoe(String producer, int size, String color, boolean isOrthopedic) {
+        super(producer, size, color, 100); 
+        this.isOrthopedic = isOrthopedic;
+    }
+
+    public boolean getIsOrthopedic() { return isOrthopedic; }
+
+    public double calcPrice() {
+        double price = basePrice;
+        if (size > 40) price = 300; 
+        if (size > 40) price = 300; 
+        if (isOrthopedic) price += 25;
+        return price;
+    }
+}
+
+public abstract class AdultShoe extends Shoe {
+    protected int year;
+
+    public AdultShoe(String producer, int size, String color, int year) {
+        super(producer, size, color, 200);
+        this.year = year;
+    }
+}
+
+public class WomensShoe extends AdultShoe {
+    private int heel;
+
+    public WomensShoe(String producer, int size, String color, int year, int heel) {
+        super(producer, size, color, year);
+        this.heel = heel;
+    }
+
+    public double calcPrice() {
+        double price = (size > 40) ? 300 : basePrice;
+        if (heel >= 5) price += 60;
+        else if (heel >= 3) price += 30;
+        if (year == 2023) price *= 1.5;
+        return price;
+    }
+}
+
+public class MensShoe extends AdultShoe {
+    private boolean isWork;
+
+    public MensShoe(String producer, int size, String color, int year, boolean isWork) {
+        super(producer, size, color, year);
+        this.isWork = isWork;
+    }
+
+    public double calcPrice() {
+        double price = (size > 40) ? 300 : basePrice;
+        if (year == 2023) price *= 1.5;
+        if (isWork) price -= 50;
+        return price;
+    }
+}
+
+public class Storage {
+    private Shoe[] shoes; 
+    private int count;
+
+    public Storage(int capacity) {
+        shoes = new Shoe[capacity];
+        count = 0;
+    }
+}
+
+public int countOrthopedic() {
+    int count = 0;
+    for (int i = 0; i < this.count; i++) {
+        if (shoes[i] instanceof KidsShoe) {
+            if (((KidsShoe)shoes[i]).getIsOrthopedic()) {
+                count++;
+            }
+        }
+    }
+    return count;
+}   

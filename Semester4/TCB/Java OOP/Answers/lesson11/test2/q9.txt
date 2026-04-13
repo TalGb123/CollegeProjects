@@ -1,0 +1,10 @@
+a)
+One: n1=36
+One: n1=32 Two: n2=128
+One: n1=15 Two: n2=30
+One: n1=36
+One: n1=7 Two: n2=28
+One: n1=32 Two: n2=128
+
+b)
+yes because it changes the values in each slot and immediately prints it

@@ -1,0 +1,31 @@
+a)
+public class Sport {}
+public interface IHall {}
+public interface IGroup {}
+public class Ball extends Sport implements IHall {}
+public class BBall extends Ball implements IGroup {}
+public class TTennis extends Ball {}
+public class MRace extends Sport {}
+public class RGymnastic extends Sport {}
+
+b)
+1. correct, upcasting
+2. correct, upcasting
+3. incorrect, needs explicit cast
+4. incorrect, cant make an interface object
+5. correct, ball implements IHall
+6. correct, ttenis inherits ball which implements IHall
+
+c)
+public static int count(Sport[] s) {
+    int count = 0;
+    for (int i = 0; i < s.length; i++) {
+        if ((s[i] instanceof IGroup) && (s[i] instanceof IHall)) {
+            count++;
+        }
+    }
+    return count;
+}
+
+d)
+structure will not work, need to refactor ihall to only specific subclasses of ball

@@ -1,0 +1,34 @@
+public void addApCode(int code) {
+    if (this.codeList.contains(code)) {
+        return; 
+    }
+
+    this.codeList.add(code);
+    this.totalSum += 1;
+}
+
+public void addClient(String id) {
+    for (Client c : this.clients) {
+        if (c.getId().equals(id)) {
+            return; 
+        }
+    }
+    this.clients.add(new Client(id));
+}
+
+public void printMatch(String city, int numRooms, int numPictures) {
+    boolean found = false;
+    for (Apartment a : this.aparts) {
+        if (a.getCity().equals(city) && 
+            a.getNumRooms() == numRooms && 
+            a.getNumPictures() >= numPictures) {
+                
+            System.out.println(a.getCode());
+            found = true;
+        }
+    }
+
+    if (!found) {
+        System.out.println("No match");
+    }
+}

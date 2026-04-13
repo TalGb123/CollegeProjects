@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="appColorBg">#FFFFFFFF</color>
+    <color name="appColorTeal">#5D7F61</color>
+    <color name="editTextColor">#1D2A3F</color>
+</resources>

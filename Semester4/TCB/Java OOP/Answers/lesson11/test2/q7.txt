@@ -1,0 +1,24 @@
+public static boolean isUpDown(ArrayList<Integer> list) {
+    if (list == null || list.size() < 2) {
+        return true; 
+    }
+    boolean growing = true; 
+    for (int i = 0; i < list.size() - 1; i++) {
+        int current = list.get(i);
+        int next = list.get(i + 1);
+        if (current == next) {
+            return false;
+        }
+        if (growing) {
+            if (next < current) {
+                growing = false;
+            }
+        } 
+        else {
+            if (next > current) {
+                return false;
+            }
+        }
+    }
+    return true;
+}

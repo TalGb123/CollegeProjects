@@ -1,0 +1,14 @@
+public One(), public One(int val)
+public Two(), public Two(int val, One p), public Two(int val, String s, One p)
+
+public static ArrayList<Two> filterTwo(ArrayList<One> arr) {
+    ArrayList<Two> result = new ArrayList<>();
+    for (int i = 0; i < arr.size(); i++) {
+        One current = arr.get(i);
+        if (current instanceof Two) {
+            result.add((Two) current);
+        }
+    }
+    if (result.isEmpty()) return null;
+    return result;
+}

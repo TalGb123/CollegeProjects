@@ -1,0 +1,24 @@
+public static boolean isFibonacci(ArrayList<Integer> chain) {
+    if (chain == null || chain.size() < 2) return false;
+    if (chain.get(0) != 1 || chain.get(1) != 1) return false;
+    for (int i = 2; i < chain.size(); i++) {
+        int sum = chain.get(i - 1) + chain.get(i - 2);
+        if (chain.get(i) != sum) {
+            return false;
+        }
+    }
+    return true;
+}
+
+public static ArrayList<Integer> createFibonacci(int num) {
+    ArrayList<Integer> result = new ArrayList<>();
+    if (num <= 0) return result;
+    result.add(1);
+    if (num == 1) return result;
+    result.add(1);
+    for (int i = 2; i < num; i++) {
+        int nextVal = result.get(i - 1) + result.get(i - 2);
+        result.add(nextVal);
+    }
+    return result;
+}

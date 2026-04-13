@@ -1,0 +1,122 @@
+--name: tal gubenko
+--id: 215681107
+
+SET SERVEROUTPUT ON;
+--q1
+--CREATE OR REPLACE TRIGGER BestRenovator
+--AFTER INSERT ON Renovations
+--DECLARE
+--    v_name    Renovators.name%TYPE;
+--    v_max_sum NUMBER;
+--    CURSOR c1 IS
+--        SELECT r.name, SUM(rn.price)
+--        FROM Renovators r
+--        JOIN Renovations rn ON r.rid = rn.rid
+--        GROUP BY r.rid, r.name
+--        ORDER BY SUM(rn.price) DESC;
+--BEGIN
+--    OPEN c1;
+--    FETCH c1 INTO v_name, v_max_sum;
+--    CLOSE c1;
+--    DBMS_OUTPUT.PUT_LINE('The best Renovator is: ' || v_name || ' || ' || 
+--        TO_CHAR(v_max_sum));
+--END;
+--/
+
+--q2
+--CREATE OR REPLACE TRIGGER Joint 
+--AFTER INSERT ON Renovations
+--FOR EACH ROW 
+--DECLARE
+--    v_days NUMBER;
+--BEGIN
+--    v_days := :NEW.endDATE - :NEW.startDATE;
+--    UPDATE JointRenovations
+--    SET totalwork = totalwork + v_days
+--    WHERE rid = :NEW.rid;
+--    IF SQL%NOTFOUND THEN
+--        INSERT INTO JointRenovations (rid, totalwork)
+--        VALUES (:NEW.rid, v_days);
+--    END IF;
+--END;
+--/
+
+--q3
+--CREATE OR REPLACE FUNCTION WorstRenovator(p_cid NUMBER) RETURN NUMBER IS
+--  v_city Customers.city%TYPE;
+--  v_rid Renovators.rid%TYPE;
+--  CURSOR c_worst_renovator IS
+--    SELECT r.rid
+--    FROM Renovations r, Customers c
+--    WHERE r.cid = c.cid
+--    AND c.city = v_city
+--    GROUP BY r.rid
+--    ORDER BY AVG(r.late) DESC;
+--BEGIN
+--  SELECT city INTO v_city FROM Customers WHERE cid = p_cid;
+--  OPEN c_worst_renovator;
+--  FETCH c_worst_renovator INTO v_rid;
+--  CLOSE c_worst_renovator;
+--  RETURN v_rid;
+--EXCEPTION
+--  WHEN NO_DATA_FOUND THEN
+--    RETURN NULL;
+--  WHEN OTHERS THEN
+--    RETURN NULL;
+--END;
+--/
+
+--DECLARE
+--  v_cid Customers.cid%TYPE;
+--  v_rid Renovators.rid%TYPE;
+--  v_city Customers.city%TYPE;
+--  v_rname Renovators.name%TYPE;
+--  ex_no_info EXCEPTION;
+--BEGIN
+--  v_cid := &cid;
+--  v_rid := WorstRenovator(v_cid);
+--  IF v_rid IS NULL THEN
+--    RAISE ex_no_info;
+--  END IF;
+--  SELECT city INTO v_city FROM Customers WHERE cid = v_cid;
+--  SELECT name INTO v_rname FROM Renovators WHERE rid = v_rid;
+--  DBMS_OUTPUT.PUT_LINE('Report for city = ' || v_city);
+--  DBMS_OUTPUT.PUT_LINE('Worst removator: ' || v_rname);
+--EXCEPTION
+--  WHEN ex_no_info THEN
+--     DBMS_OUTPUT.PUT_LINE('No information found for this input');
+--  WHEN NO_DATA_FOUND THEN
+--     DBMS_OUTPUT.PUT_LINE('No information found for this input');
+--END;
+--/
+
+--q4
+--CREATE OR REPLACE PROCEDURE RenovationReport (p_city IN Customers.city%TYPE) AS
+--  CURSOR c_renovations IS
+--    SELECT r.cid, r.endDATE, r.price
+--    FROM Renovations r, Customers c
+--    WHERE r.cid = c.cid
+--    AND c.city = p_city
+--    ORDER BY r.endDATE;
+--  v_cid Renovations.cid%TYPE;
+--  v_date Renovations.endDATE%TYPE;
+--  v_price Renovations.price%TYPE;
+--BEGIN
+--  OPEN c_renovations;
+--  LOOP
+--    FETCH c_renovations INTO v_cid, v_date, v_price;
+--    EXIT WHEN c_renovations%NOTFOUND;
+--    DBMS_OUTPUT.PUT_LINE(v_cid || ' | ' || v_date || ' | ' || v_price);
+--  END LOOP;
+--  CLOSE c_renovations;
+--END;
+--/
+--
+--DECLARE
+--  v_city Customers.city%TYPE;
+--BEGIN
+--  v_city := '&city';
+--  DBMS_OUTPUT.PUT_LINE('Report for city: ' || v_city);
+--  RenovationReport(v_city);
+--END;
+--/

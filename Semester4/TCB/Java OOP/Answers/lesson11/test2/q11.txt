@@ -1,0 +1,28 @@
+public class Grade {
+    private int code;
+    private int sem1;
+    private int sem2;
+
+    public Grade(int code, int sem1, int sem2) {
+        this.code = code;
+        this.sem1 = sem1;
+        this.sem2 = sem2;
+    }
+
+    public int getSem1() { return sem1; }
+    public int getSem2() { return sem2; }
+}
+
+public class Student {
+    private String id;
+    private ArrayList<Grade> grades; 
+
+    public Student(String id, ArrayList<Grade> grades) {
+        this.id = id;
+        this.grades = grades;
+    }
+
+    public String getId() { return id; }
+    
+    public ArrayList<Grade> getGrades() { return grades; } 
+}

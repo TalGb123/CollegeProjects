@@ -1,0 +1,35 @@
+a)
+1. false - apple doesnt inherit validweight as its declared only in apple and not in fruit
+2. true
+3. true 
+4. false - parent cant access its children private properties
+5. false - every class inherits the built in function which it can override
+
+b)
+1. compilation error, apple object saved as fruit, no declaration for validweight() in fruit and only in apple which it cant access without casting
+2. compilation error, same as above
+3. valid
+4. runtime error, its a fruit object, cant cast into apple
+5. compilation error, color is private, cant be accessed directly from testfruit
+
+c)
+public static void count(Object[] arr) {
+    int countApple = 0;
+    int countFruitNotApple = 0;
+    int countNotFruit = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] instanceof Apple) {
+            countApple++;
+        } 
+        else if (arr[i] instanceof Fruit) {
+            countFruitNotApple++;
+        } 
+        else {
+            countNotFruit++;
+        }
+    }
+    System.out.println("Apple: " + countApple);
+    System.out.println("Fruit (not Apple): " + countFruitNotApple);
+    System.out.println("Not Fruit: " + countNotFruit);
+}

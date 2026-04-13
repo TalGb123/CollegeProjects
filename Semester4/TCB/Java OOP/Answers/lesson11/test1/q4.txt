@@ -1,0 +1,5 @@
+1. compilation error, cant initiate an interface directly
+2. valid, Three: doIt2(), One: DoIt1(), One: a=5 Three: c=10, One: a=5 Three: c=10
+3. compilation error, cant save a parent object in a child variable
+4. runtime error, cant save an object as its sibling-class' object
+5. valid, Three: doIt1(), One: DoIt1(), One: a=5 Three: c=5

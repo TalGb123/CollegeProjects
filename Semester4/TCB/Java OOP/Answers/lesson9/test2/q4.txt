@@ -1,0 +1,19 @@
+a)
+8%8
+16*8
+6*
+8%8
+16*8
+5*
+something%0
+0*0
+
+b)
+1. valid, overloading
+2. invalid, compilation error, cant overload by return type alone
+3. valid, overloading
+
+c)
+1. valid, overloading
+2. valid, overriding 
+3. invalid, compilation error, cant override with a different return type

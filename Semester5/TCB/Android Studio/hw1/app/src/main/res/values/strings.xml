@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CalculatorApp</string>
+    <string-array name="operations_array">
+        <item>Addition (+)</item>
+        <item>Subtraction (-)</item>
+        <item>Multiplication (*)</item>
+        <item>Division (/)</item>
+        <item>Power (^)</item>
+    </string-array>
+    <string name="my_name">Tal Gubenko</string>
+    <string name="hint_firstNum">Enter first number</string>
+    <string name="hint_secondNum">Enter second number</string>
+    <string name="result">Result: </string>
+    <string name="calculate">Calculate</string>
+
+</resources>
