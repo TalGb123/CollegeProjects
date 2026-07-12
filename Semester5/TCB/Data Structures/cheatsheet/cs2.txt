@@ -1,0 +1,159 @@
+public class AdvancedExamCheatSheet {
+
+    // ==========================================
+    // 1. TREE RECONSTRUCTION (Classic Midterm Qs)
+    // ==========================================
+
+    /**
+     * Reconstruct a Binary Tree from Inorder and Postorder traversals.
+     * Postorder: Left, Right, ROOT (Root is always at the end).
+     * Inorder: Left, ROOT, Right (Tells us what is left/right of root).
+     */
+    public static BinNode<Integer> buildTreeInPost(int[] inorder, int[] postorder) {
+        return buildInPostHelper(inorder, 0, inorder.length - 1, 
+                                 postorder, 0, postorder.length - 1);
+    }
+
+    private static BinNode<Integer> buildInPostHelper(int[] in, int inStart, int inEnd, 
+                                                      int[] post, int postStart, int postEnd) {
+        if (inStart > inEnd || postStart > postEnd) return null;
+
+        // The root is always the last element in the current postorder segment
+        int rootVal = post[postEnd];
+        BinNode<Integer> root = new BinNode<>(rootVal);
+
+        // Find the root in the inorder array
+        int rootIndex = inStart;
+        while (rootIndex <= inEnd && in[rootIndex] != rootVal) {
+            rootIndex++;
+        }
+
+        // Calculate the size of the left subtree
+        int leftTreeSize = rootIndex - inStart;
+
+        // Recursively build left and right subtrees
+        root.setLeft(buildInPostHelper(in, inStart, rootIndex - 1, 
+                                       post, postStart, postStart + leftTreeSize - 1));
+        
+        root.setRight(buildInPostHelper(in, rootIndex + 1, inEnd, 
+                                        post, postStart + leftTreeSize, postEnd - 1));
+
+        return root;
+    }
+
+    /**
+     * Reconstruct a Binary Tree from Inorder and Preorder traversals.
+     * Preorder: ROOT, Left, Right (Root is always at the start).
+     */
+    public static BinNode<Integer> buildTreeInPre(int[] inorder, int[] preorder) {
+        return buildInPreHelper(inorder, 0, inorder.length - 1, 
+                                preorder, 0, preorder.length - 1);
+    }
+
+    private static BinNode<Integer> buildInPreHelper(int[] in, int inStart, int inEnd, 
+                                                     int[] pre, int preStart, int preEnd) {
+        if (inStart > inEnd || preStart > preEnd) return null;
+
+        int rootVal = pre[preStart];
+        BinNode<Integer> root = new BinNode<>(rootVal);
+
+        int rootIndex = inStart;
+        while (rootIndex <= inEnd && in[rootIndex] != rootVal) {
+            rootIndex++;
+        }
+
+        int leftTreeSize = rootIndex - inStart;
+
+        root.setLeft(buildInPreHelper(in, inStart, rootIndex - 1, 
+                                      pre, preStart + 1, preStart + leftTreeSize));
+        
+        root.setRight(buildInPreHelper(in, rootIndex + 1, inEnd, 
+                                       pre, preStart + leftTreeSize + 1, preEnd));
+
+        return root;
+    }
+
+    // ==========================================
+    // 2. ADVANCED BST & TREE VALIDATIONS
+    // ==========================================
+
+    /**
+     * Verify if a Binary Tree is a VALID Binary Search Tree.
+     * Must check if every node satisfies the min/max constraints, not just its immediate children.
+     * Complexity: O(n)
+     */
+    public static boolean isValidBST(BinNode<Integer> root) {
+        return isValidBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private static boolean isValidBSTHelper(BinNode<Integer> node, int min, int max) {
+        if (node == null) return true;
+        
+        if (node.getValue() <= min || node.getValue() >= max) return false;
+        
+        return isValidBSTHelper(node.getLeft(), min, node.getValue()) && 
+               isValidBSTHelper(node.getRight(), node.getValue(), max);
+    }
+
+    /**
+     * Lowest Common Ancestor (LCA) in a Binary Search Tree.
+     * Finds the lowest node that has both p and q as descendants.
+     */
+    public static BinNode<Integer> lowestCommonAncestorBST(BinNode<Integer> root, int p, int q) {
+        if (root == null) return null;
+
+        int curr = root.getValue();
+        
+        // If both are smaller, LCA must be in the left subtree
+        if (p < curr && q < curr) {
+            return lowestCommonAncestorBST(root.getLeft(), p, q);
+        }
+        // If both are larger, LCA must be in the right subtree
+        if (p > curr && q > curr) {
+            return lowestCommonAncestorBST(root.getRight(), p, q);
+        }
+        
+        // If they split (one smaller, one larger), or one equals the root, this is the LCA!
+        return root;
+    }
+
+    /**
+     * Check if two trees are exactly identical (same structure, same values).
+     */
+    public static boolean isIdentical(BinNode<Integer> t1, BinNode<Integer> t2) {
+        if (t1 == null && t2 == null) return true;
+        if (t1 == null || t2 == null) return false;
+        
+        return t1.getValue().equals(t2.getValue()) &&
+               isIdentical(t1.getLeft(), t2.getLeft()) &&
+               isIdentical(t1.getRight(), t2.getRight());
+    }
+
+    // ==========================================
+    // 3. USING THEIR STRICT QUEUE WITH TREES
+    // ==========================================
+
+    /**
+     * Print a tree level-by-level (Breadth-First Search)
+     * Uses your professor's strict Queue class.
+     */
+    public static void printLevelOrder(BinNode<Integer> root) {
+        if (root == null) return;
+
+        // Note: Your Queue is typed, so we make a Queue of BinNodes
+        Queue<BinNode<Integer>> q = new Queue<>();
+        q.enqueue(root);
+
+        while (!q.isEmpty()) {
+            BinNode<Integer> curr = q.dequeue();
+            System.out.print(curr.getValue() + " ");
+
+            if (curr.hasLeft()) {
+                q.enqueue(curr.getLeft());
+            }
+            if (curr.hasRight()) {
+                q.enqueue(curr.getRight());
+            }
+        }
+    }
+}

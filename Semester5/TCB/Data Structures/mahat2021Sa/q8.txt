@@ -1,0 +1,11 @@
+a) {4, 1, 6, 3, 2}
+
+b)
+1. {4, 1, 6, 3, 2}
+2. {4, 1, 6, 3}
+3. {1, 4, 6, 3, 2}
+4. {9, 9, 9, 9}
+
+what1: Checks if the values of the two lists match exactly up to the length of the shorter list. In other words, it checks if one list is a prefix of the other.
+
+what2: Checks if the list calling the method is a subset of the list passed as a parameter. It verifies that every element in the first list appears in the second list, regardless of the order they appear in.

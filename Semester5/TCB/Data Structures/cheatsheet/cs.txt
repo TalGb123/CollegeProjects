@@ -1,0 +1,224 @@
+public class ExamCheatSheet {
+
+    // ==========================================
+    // 1. TREES & LINKED LISTS (Midterm Focus)
+    // ==========================================
+
+    /**
+     * Midterm Q2a: Build a BST from a Linked List.
+     * Complexity: O(n log n) average, O(n^2) worst case if the list is sorted.
+     */
+    public static BinNode<Integer> linkedListToBST(Node<Integer> head) {
+        BinNode<Integer> root = null;
+        Node<Integer> curr = head;
+        
+        while (curr != null) {
+            root = insertIntoBST(root, curr.getValue());
+            curr = curr.getNext();
+        }
+        return root;
+    }
+
+    // Helper for Q2a
+    private static BinNode<Integer> insertIntoBST(BinNode<Integer> root, int val) {
+        if (root == null) return new BinNode<>(val);
+        
+        if (val < root.getValue()) {
+            root.setLeft(insertIntoBST(root.getLeft(), val));
+        } else {
+            root.setRight(insertIntoBST(root.getRight(), val));
+        }
+        return root;
+    }
+
+    /**
+     * Midterm Q2b: Build a Sorted Linked List from a BST (Inorder Traversal).
+     * Complexity: O(n) time, O(h) space for recursion stack.
+     * Trick: Do a "Reverse Inorder" (Right, Root, Left) and insert at the head of the list!
+     */
+    static Node<Integer> listHead = null; // Global/Class variable to track head
+    
+    public static Node<Integer> bstToSortedLinkedList(BinNode<Integer> root) {
+        listHead = null; // Reset for safety
+        buildListReverseInorder(root);
+        return listHead;
+    }
+
+    private static void buildListReverseInorder(BinNode<Integer> root) {
+        if (root == null) return;
+        
+        // 1. Traverse Right
+        buildListReverseInorder(root.getRight());
+        
+        // 2. Visit Root (Insert at head of our linked list)
+        listHead = new Node<>(root.getValue(), listHead); 
+        
+        // 3. Traverse Left
+        buildListReverseInorder(root.getLeft());
+    }
+
+    /**
+     * Extra: Invert a Binary Tree (Mirroring it)
+     * Complexity: O(n) time. 
+     */
+    public static BinNode<Integer> invertTree(BinNode<Integer> root) {
+        if (root == null) return null;
+        
+        // Recursively invert subtrees
+        BinNode<Integer> left = invertTree(root.getLeft());
+        BinNode<Integer> right = invertTree(root.getRight());
+        
+        // Swap them
+        root.setLeft(right);
+        root.setRight(left);
+        
+        return root;
+    }
+
+    public static BinNode<Integer> deleteNode(BinNode<Integer> root, int value) {
+        if (root == null)
+            return null;
+        int curr = root.getValue();
+        if (curr > value) {
+            root.setLeft(deleteNode(root.getLeft(), value));
+        } else if (curr < value) {
+            root.setRight(deleteNode(root.getRight(), value));
+        } else {
+            if (!root.hasLeft())
+                return root.getRight();
+            else if (!root.hasRight())
+                return root.getLeft();
+
+            int minValue = findMin(root.getRight());
+            root.setValue(minValue);
+            root.setRight(deleteNode(root.getRight(), minValue));
+        }
+        return root;
+    }
+
+    // ==========================================
+    // 2. QUEUE SHIT (Strict Rules)
+    // ==========================================
+
+    /**
+     * Reverse a Queue recursively (from your Main-5.java)
+     */
+    public static void reverseQueue(Queue<Integer> q) {
+        if (q.isEmpty()) return;
+        int front = q.dequeue();
+        reverseQueue(q);
+        q.enqueue(front);
+    }
+
+    /**
+     * Priority Queue simulation using standard Queue: 
+     * Sorts a queue in ascending order (min element at front) without extra arrays.
+     */
+    public static void sortQueue(Queue<Integer> q) {
+        if (q.isEmpty()) return;
+        
+        Queue<Integer> aux = new Queue<>();
+        int size = q.size();
+        
+        for (int i = 0; i < size; i++) {
+            int min = q.dequeue();
+            int currentSize = q.size();
+            
+            // Find the minimum in the remaining queue
+            for (int j = 0; j < currentSize; j++) {
+                int curr = q.dequeue();
+                if (curr < min) {
+                    q.enqueue(min);
+                    min = curr;
+                } else {
+                    q.enqueue(curr);
+                }
+            }
+            aux.enqueue(min);
+        }
+        
+        // Move sorted elements back to original queue
+        while (!aux.isEmpty()) {
+            q.enqueue(aux.dequeue());
+        }
+    }
+
+    // ==========================================
+    // 3. SORTING ALGORITHMS (From Slides)
+    // ==========================================
+
+    /**
+     * Merge Sort (Recursive)
+     * Complexity: O(n log n)
+     */
+    public static void mergeSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int mid = (low + high) / 2;
+            mergeSort(arr, low, mid);
+            mergeSort(arr, mid + 1, high);
+            merge(arr, low, mid, high);
+        }
+    }
+
+    private static void merge(int[] arr, int low, int mid, int high) {
+        int[] helper = new int[arr.length];
+        for (int i = low; i <= high; i++) helper[i] = arr[i];
+        
+        int i = low;       // left half index
+        int j = mid + 1;   // right half index
+        int k = low;       // original array index
+        
+        while (i <= mid && j <= high) {
+            if (helper[i] <= helper[j]) {
+                arr[k] = helper[i];
+                i++;
+            } else {
+                arr[k] = helper[j];
+                j++;
+            }
+            k++;
+        }
+        
+        // Copy remaining elements of the left half (right half is already there)
+        while (i <= mid) {
+            arr[k] = helper[i];
+            k++;
+            i++;
+        }
+    }
+
+    /**
+     * Quick Sort (Recursive)
+     * Complexity: O(n log n) avg, O(n^2) worst case
+     */
+    public static void quickSort(int[] arr, int lower, int upper) {
+        if (lower >= upper) return;
+        
+        int partitionIndex = partition(arr, lower, upper);
+        quickSort(arr, lower, partitionIndex - 1);
+        quickSort(arr, partitionIndex + 1, upper);
+    }
+
+    private static int partition(int[] arr, int lower, int upper) {
+        int pivot = arr[lower];
+        int left = lower + 1;
+        int right = upper;
+        
+        while (left <= right) {
+            while (right >= lower && arr[right] > pivot) right--;
+            while (left <= upper && arr[left] <= pivot) left++;
+            
+            if (left < right) {
+                swap(arr, left, right);
+            }
+        }
+        swap(arr, lower, right); // Place pivot in correct spot
+        return right;
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}

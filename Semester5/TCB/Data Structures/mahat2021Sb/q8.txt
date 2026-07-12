@@ -1,0 +1,8 @@
+a. 4
+b. 3
+c. true
+d. a+b=b+a=false because something() is taking the highest value of q1 and is 
+checking in q2 if there is a value that is equal/higher than the highest value in q1, which returns false
+e. secret - checking length of the queue
+what - checking the highest value of the queue
+something - checks if there is a value in q2 that is equal/higher than the first value in q1

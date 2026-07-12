@@ -1,0 +1,8 @@
+== full binary trees ==
+
+number of nodes in depth i: 2^i
+number of leafs: 2^(height)
+total nodes in tree: 2^(height+1)-1
+height of tree: log2(n+1)-1
+
+
